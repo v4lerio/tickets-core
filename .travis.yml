@@ -1,0 +1,15 @@
+language: php
+
+php:
+  - 7.2
+
+before_script:
+  - cp .env.travis .env
+  - composer install --no-interaction
+  - php artisan migrate --force
+  - php artisan jwt:secret
+  - php artisan key:generate
+
+cache:
+  directories:
+    - vendor
