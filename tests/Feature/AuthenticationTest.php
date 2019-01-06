@@ -26,7 +26,7 @@ class AuthenticationTest extends TestCase
     /** @test */
     public function it_will_register_a_user()
     {
-        $response = $this->post('api/register', [
+        $response = $this->json('POST', 'api/register', [
             'email'    => 'test2@email.com',
             'name' => 'test account',
             'password' => '123456'
@@ -40,9 +40,26 @@ class AuthenticationTest extends TestCase
     }
 
     /** @test */
+    public function it_validates_registration_data() {
+        $response = $this->json('POST', 'api/register', []);
+        
+        $response->assertStatus(422)
+            ->assertJson([
+                'errors' => [
+                    'email' => 
+                        ['The email field is required.'],
+                    'name' => 
+                        ['The name field is required.'],
+                    'password' => 
+                        ['The password field is required.']
+                ]
+            ]);
+    }
+
+    /** @test */
     public function it_will_log_a_user_in()
     {
-        $response = $this->post('api/login', [
+        $response = $this->json('POST', 'api/login', [
             'email'    => 'test@email.com',
             'name' => 'test account',
             'password' => '123456'
@@ -58,7 +75,7 @@ class AuthenticationTest extends TestCase
     /** @test */
     public function it_will_not_log_an_invalid_user_in()
     {
-        $response = $this->post('api/login', [
+        $response = $this->json('POST', 'api/login', [
             'email'    => 'test@email.com',
             'name' => 'test account',
             'password' => 'notlegitpassword'

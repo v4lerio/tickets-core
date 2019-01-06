@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
 
-	public function register(Request $request) {
-        $user = User::create([
-             'email'    => $request->email,
-             'name' => $request->name,
-             'password' => $request->password,
-         ]);
+	public function register() {
+        $data = request()->validate([
+            'email' => 'required|unique:users|email',
+            'name' => 'required',
+            'password' => 'required'
+        ]);
+
+        $user = User::create($data);
 
         $token = auth()->login($user);
 
