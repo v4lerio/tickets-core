@@ -2,26 +2,12 @@
 
 namespace Tests\Feature;
 
-use App\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
 {
-    use DatabaseMigrations;
-
-    public function setUp()
-    {
-        parent::setUp();
-
-        $user = new User([
-             'email'    => 'test@email.com',
-             'name' => 'test account',
-             'password' => '123456'
-         ]);
-
-        $user->save();
-    }
+    use RefreshDatabase;
 
     /** @test */
     public function it_will_register_a_user()
@@ -59,9 +45,11 @@ class AuthenticationTest extends TestCase
     /** @test */
     public function it_will_log_a_user_in()
     {
+        $user = $this->createUser(['password' => '123456']);
+
         $response = $this->json('POST', 'api/login', [
-            'email'    => 'test@email.com',
-            'name' => 'test account',
+            'email'    => $user->email,
+            'name' => $user->name,
             'password' => '123456'
         ]);
 
