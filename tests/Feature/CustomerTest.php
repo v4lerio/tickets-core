@@ -21,7 +21,7 @@ class CustomerTest extends TestCase
     {
         $customer = $this->create(\App\Customer::class);
 
-        $this->json('GET', 'api/customers')
+        $this->json('GET', '/api/customers')
             ->assertStatus(200)
             ->assertJsonFragment([
                 "name" => $customer->name,
@@ -69,6 +69,16 @@ class CustomerTest extends TestCase
                 "name" => $new_name,
             ]);
     }
+
+    /** @test */
+    public function we_can_update_with_no_fields()
+    {
+        $organisation = $this->create(\App\Customer::class);
+
+        $this->json('PATCH', $organisation->path())
+            ->assertStatus(200);
+    }
+
 
     /** @test */
     public function we_can_soft_delete_an_customer()

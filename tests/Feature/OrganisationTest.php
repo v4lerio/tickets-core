@@ -21,7 +21,7 @@ class OrganisationTest extends TestCase
     {
         $organisation = $this->create(\App\Organisation::class);
 
-        $this->json('GET', 'api/organisations')
+        $this->json('GET', '/api/organisations')
             ->assertStatus(200)
             ->assertJsonFragment([
                 "name" => $organisation->name,
@@ -69,6 +69,16 @@ class OrganisationTest extends TestCase
                 "name" => $new_name,
             ]);
     }
+
+    /** @test */
+    public function we_can_update_with_no_fields()
+    {
+        $organisation = $this->create(\App\Organisation::class);
+
+        $this->json('PATCH', $organisation->path())
+            ->assertStatus(200);
+    }
+
 
     /** @test */
     public function we_can_soft_delete_an_organisation()
