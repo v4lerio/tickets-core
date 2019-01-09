@@ -28,15 +28,15 @@ class AuthenticationTest extends TestCase
     /** @test */
     public function it_validates_registration_data() {
         $response = $this->json('POST', 'api/register', []);
-        
+
         $response->assertStatus(422)
             ->assertJson([
                 'errors' => [
-                    'email' => 
+                    'email' =>
                         ['The email field is required.'],
-                    'name' => 
+                    'name' =>
                         ['The name field is required.'],
-                    'password' => 
+                    'password' =>
                         ['The password field is required.']
                 ]
             ]);
