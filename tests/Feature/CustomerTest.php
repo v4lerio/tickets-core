@@ -19,7 +19,6 @@ class CustomerTest extends TestCase
     /** @test */
     public function we_can_fetch_customers()
     {
-        $this->withoutExceptionHandling();
         $customer = $this->create(\App\Customer::class);
 
         $this->json('GET', 'api/customers')
