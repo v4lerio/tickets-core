@@ -44,7 +44,7 @@ class SupportTypeController extends Controller
      */
     public function show(SupportType $supportType)
     {
-        return new SupportTypeResource($supportType);
+        return new SupportTypeResource($supportType->load(['parent', 'children']));
     }
 
     /**

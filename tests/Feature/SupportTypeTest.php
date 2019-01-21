@@ -105,4 +105,34 @@ class SupportTypeTest extends TestCase
                 'id' => $org->id
             ]);
     }
+
+    /** @test */
+    public function we_can_create_a_support_type_with_parent() {
+        $parent = $this->create(\App\SupportType::class);
+
+        $response = $this->json('POST', '/api/support_types', [
+            'parent_id' => $parent->id,
+            'name' => $this->faker->name
+        ])->assertStatus(201);
+
+        $id = $response->decodeResponseJson()['data']['id'];
+
+        // test we can fetch the child and reference the parent
+        $child_support_type = $this->json('GET', '/api/support_types/' . $id)
+            ->assertStatus(200)
+            ->decodeResponseJson()['data'];
+        
+        $this->assertSame($child_support_type['parent']['id'], $parent->id);
+
+        // test we can fetch the parent and reference the child
+        $parent_support_type = $this->json('GET', $parent->path())
+            ->assertStatus(200)
+            ->decodeResponseJson()['data'];
+        
+        $this->assertCount(1, $parent_support_type['children']);
+        $this->assertSame($child_support_type['name'], $parent_support_type['children'][0]['name']);
+    }
+
+
+
 }
