@@ -31,7 +31,6 @@ class DepartmentTest extends TestCase
     /** @test */
     public function we_can_fetch_a_particular_department()
     {
-        $this->withoutExceptionHandling();
         $department = $this->create(\App\Department::class);
 
         $this->json('GET', $department->path())
@@ -61,7 +60,6 @@ class DepartmentTest extends TestCase
     /** @test */
     public function we_can_update_an_departments_name()
     {
-        $this->withoutExceptionHandling();
         $new_name = "Tom Harper";
         $department = $this->create(\App\Department::class);
 
