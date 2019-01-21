@@ -17,4 +17,25 @@ class SupportType extends TestCase
 
         $this->assertEquals('/api/support_types/' . $support_type->id, $support_type->path());
     }
+
+    /** @test */
+    public function it_can_have_a_parent()
+    {
+        $support_type_parent = $this->create(\App\SupportType::class);
+        $support_type_child = $this->create(\App\SupportType::class, ['parent_id' => $support_type_parent->id]);
+
+        $this->assertInstanceOf(\App\SupportType::class, $support_type_child->parent);
+        $this->assertSame($support_type_parent->id, $support_type_child->parent->id);
+    }
+
+    /** @test */
+    public function it_can_have_a_child()
+    {
+        $support_type_parent = $this->create(\App\SupportType::class);
+        $support_type_child = $this->create(\App\SupportType::class, ['parent_id' => $support_type_parent->id]);
+
+        $this->assertInstanceOf(\App\SupportType::class, $support_type_parent->children[0]);
+        $this->assertSame($support_type_child->id, $support_type_parent->children[0]->id);
+    }
+
 }

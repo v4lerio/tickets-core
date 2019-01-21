@@ -16,4 +16,14 @@ class SupportType extends Model
         return "/api/support_types/{$this->id}";
     }
 
+    public function parent()
+    {
+        return $this->belongsTo(SupportType::class, 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(SupportType::class, 'parent_id');
+    }
+
 }
