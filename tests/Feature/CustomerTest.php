@@ -105,4 +105,33 @@ class CustomerTest extends TestCase
             ]);
     }
 
+    /** @test */
+    public function we_can_create_a_customer_against_an_organisation()
+    {
+        $org = $this->create(\App\Organisation::class);
+
+        $response = $this->json('POST', '/api/customers', [
+            'organisation_id' => $org->id,
+            'name' => $this->faker->name
+        ])->assertStatus(201);
+        
+        $id = $response->decodeResponseJson()['data']['id'];
+
+        $customer = \App\Customer::find($id);
+        $this->assertInstanceOf(\App\Organisation::class, $customer->organisation);
+    }
+
+    /** @test */
+    public function we_can_change_a_customers_organisation()
+    {
+        $org = $this->create(\App\Organisation::class);
+        $customer = $this->create(\App\Customer::class, ['organisation_id' => $org]);
+
+        $org2 = $this->create(\App\Organisation::class);
+        $response = $this->json('PATCH', $customer->path(), ['organisation_id' => $org2->id])
+            ->assertStatus(200);
+        
+        $this->assertSame($org2->name, $customer->fresh()->organisation->name);
+    }
+
 }

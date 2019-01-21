@@ -27,6 +27,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
+            'organisation_id' => 'sometimes|required|exists:organisations,id',
             'name' => 'required'
         ]);
 
@@ -56,6 +57,7 @@ class CustomerController extends Controller
     public function update(Request $request, Customer $customer)
     {
         $customer->update($request->validate([
+            'organisation_id' => 'sometimes|required|exists:organisations,id',
             'name' => 'sometimes|required'
         ]));
 
