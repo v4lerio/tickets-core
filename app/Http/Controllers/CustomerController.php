@@ -44,7 +44,7 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        return new CustomerResource($customer);
+        return new CustomerResource($customer->load('organisation'));
     }
 
     /**

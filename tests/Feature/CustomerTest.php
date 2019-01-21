@@ -117,8 +117,11 @@ class CustomerTest extends TestCase
         
         $id = $response->decodeResponseJson()['data']['id'];
 
-        $customer = \App\Customer::find($id);
-        $this->assertInstanceOf(\App\Organisation::class, $customer->organisation);
+        $customer = $this->json('GET', '/api/customers/' . $id)
+            ->assertStatus(200)
+            ->decodeResponseJson()['data'];
+
+        $this->assertSame($customer['organisation']['name'], $org->name);
     }
 
     /** @test */
