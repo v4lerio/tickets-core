@@ -15,6 +15,7 @@ class CreateSupportTypesTable extends Migration
     {
         Schema::create('support_types', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('parent_id')->nullable();
             $table->string('name');
             $table->timestamps();
             $table->softDeletes();
