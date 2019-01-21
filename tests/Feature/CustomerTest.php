@@ -87,6 +87,8 @@ class CustomerTest extends TestCase
 
         $this->json('DELETE', $customer->path())
             ->assertStatus(200);
+
+        $this->assertTrue($customer->fresh()->trashed());
     }
 
     /** @test */

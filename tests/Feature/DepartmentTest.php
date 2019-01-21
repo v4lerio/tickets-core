@@ -105,6 +105,8 @@ class DepartmentTest extends TestCase
 
         $this->json('DELETE', $department->path())
             ->assertStatus(200);
+
+        $this->assertTrue($department->fresh()->trashed());
     }
 
     /** @test */

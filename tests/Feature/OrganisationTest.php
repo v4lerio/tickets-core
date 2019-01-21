@@ -87,6 +87,8 @@ class OrganisationTest extends TestCase
 
         $this->json('DELETE', $organisation->path())
             ->assertStatus(200);
+
+        $this->assertTrue($organisation->fresh()->trashed());
     }
 
     /** @test */
