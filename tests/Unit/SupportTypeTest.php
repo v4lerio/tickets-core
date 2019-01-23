@@ -6,7 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class SupportType extends TestCase
+class SupportTypeTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -36,6 +36,16 @@ class SupportType extends TestCase
 
         $this->assertInstanceOf(\App\SupportType::class, $support_type_parent->children[0]);
         $this->assertSame($support_type_child->id, $support_type_parent->children[0]->id);
+    }
+
+    /** @test */
+    public function it_can_have_many_tickets()
+    {
+        $support_type = $this->create(\App\SupportType::class);
+        $ticket = $this->create(\App\Ticket::class, ['support_type_id' => $support_type]);
+
+        $this->assertInstanceOf(\App\Ticket::class, $support_type->tickets->first());
+        $this->assertSame($ticket->support_type->name, $support_type->name);
     }
 
 }

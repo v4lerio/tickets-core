@@ -6,7 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class Department extends TestCase
+class DepartmentTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -26,5 +26,14 @@ class Department extends TestCase
         $this->assertInstanceOf(\App\User::class, $department->manager);
     }
 
+    /** @test */
+    public function it_can_have_many_tickets()
+    {
+        $department = $this->create(\App\Department::class);
+        $ticket = $this->create(\App\Ticket::class, ['department_id' => $department]);
+
+        $this->assertInstanceOf(\App\Ticket::class, $department->tickets->first());
+        $this->assertSame($ticket->department->name, $department->name);
+    }
 
 }

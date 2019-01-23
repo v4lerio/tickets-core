@@ -11,11 +11,19 @@ class Customer extends Model
 
     protected $guarded = [];
 
-    public function path() {
+    public function path() 
+    {
         return "/api/customers/{$this->id}";
     }
 
-    public function Organisation() {
+    public function organisation() 
+    {
         return $this->belongsTo(Organisation::class);
     }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
 }

@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Database\Eloquent\Collection;
 
-class Organisation extends TestCase
+class OrganisationTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -16,7 +16,7 @@ class Organisation extends TestCase
     {
         $organisation = $this->create(\App\Organisation::class);
 
-        $this->assertEquals('/api/organisation/' . $organisation->id, $organisation->path());
+        $this->assertEquals('/api/organisations/' . $organisation->id, $organisation->path());
     }
 
     /** @test */

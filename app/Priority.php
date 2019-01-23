@@ -20,4 +20,9 @@ class Priority extends Model
         return "/api/priorities/{$this->id}";
     }
 
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
 }
