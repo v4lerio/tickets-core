@@ -134,7 +134,9 @@ class CustomerTest extends TestCase
         $response = $this->json('PATCH', $customer->path(), ['organisation_id' => $org2->id])
             ->assertStatus(200);
         
-        $this->assertSame($org2->name, $customer->fresh()->organisation->name);
+        $response = $this->json('GET', $customer->path())
+            ->assertStatus(200)
+            ->assertJsonFragment(['name' => $org2->name]);
     }
 
 }
