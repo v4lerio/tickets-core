@@ -73,8 +73,7 @@ class PriorityTest extends TestCase
 
         $response = $this->json('POST', '/api/priorities', $priority->toArray())
             ->assertStatus(422)
-            ->assertJsonFragment(["The colour has already been taken."])
-            ->assertJsonFragment(["The urgency has already been taken."]);
+            ->assertJsonFragment(["The colour has already been taken."]);
     }
 
     /** @test */

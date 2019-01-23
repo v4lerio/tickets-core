@@ -29,7 +29,7 @@ class PriorityController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'colour' => 'required|unique:priorities',
-            'urgency' => 'required|integer|unique:priorities',
+            'urgency' => 'required|integer',
         ]);
 
         $priority = Priority::create($data);
@@ -60,7 +60,7 @@ class PriorityController extends Controller
         $priority->update($request->validate([
             'name' => 'sometimes|required',
             'colour' => 'sometimes|required|unique:priorities',
-            'urgency' => 'sometimes|required|uniqueu:priorities'
+            'urgency' => 'sometimes|required'
         ]));
 
         return new PriorityResource($priority);   
