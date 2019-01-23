@@ -13,5 +13,6 @@ Route::middleware('auth:api')->group(function() {
     Route::resource('customers', 'CustomerController');
     Route::resource('departments', 'DepartmentController');
     Route::resource('support_types', 'SupportTypeController');
+    Route::resource('priorities', 'PriorityController');
 });
 
