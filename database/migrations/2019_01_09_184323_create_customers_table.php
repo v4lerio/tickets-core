@@ -19,10 +19,6 @@ class CreateCustomersTable extends Migration
             $table->string('name');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('organisation_id')
-                ->references('id')->on('organisation')
-                ->onDelete('cascade');
         });
     }
 
