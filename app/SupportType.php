@@ -11,6 +11,11 @@ class SupportType extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'id' => 'integer',
+        'parent_id' => 'integer'
+    ];
+
     public function path()
     {
         return "/api/support_types/{$this->id}";

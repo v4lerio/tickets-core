@@ -11,12 +11,21 @@ class Ticket extends Model
 
     protected $guarded = []; // fite me
 
-    public function path() 
+    protected $casts = [
+        'id' => 'integer',
+        'user_id' => 'integer',
+        'customer_id' => 'integer',
+        'department_id' => 'integer',
+        'support_type_id' => 'integer',
+        'priority_id' => 'integer',
+    ];
+
+    public function path()
     {
         return "/api/tickets/{$this->id}";
     }
 
-    public function owner() 
+    public function owner()
     {
         return $this->belongsTo(\App\User::class, 'user_id');
     }

@@ -12,6 +12,7 @@ class Priority extends Model
     protected $guarded = [];
 
     protected $casts = [
+        'id' => 'integer',
         'urgency' => 'integer'
     ];
 

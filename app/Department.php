@@ -11,6 +11,11 @@ class Department extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'id' => 'integer',
+        'manager_id' => 'integer',
+    ];
+
     public function path()
     {
         return "/api/departments/{$this->id}";

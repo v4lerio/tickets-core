@@ -11,12 +11,17 @@ class Customer extends Model
 
     protected $guarded = [];
 
-    public function path() 
+    protected $casts = [
+        'id' => 'integer',
+        'organisation_id' => 'integer',
+    ];
+
+    public function path()
     {
         return "/api/customers/{$this->id}";
     }
 
-    public function organisation() 
+    public function organisation()
     {
         return $this->belongsTo(Organisation::class);
     }
