@@ -31,7 +31,6 @@ class PriorityTest extends TestCase
     /** @test */
     public function we_can_fetch_a_particular_priority()
     {
-        $this->withoutExceptionHandling();
         $priority = $this->create(\App\Priority::class);
 
         $this->json('GET', $priority->path())
@@ -67,7 +66,7 @@ class PriorityTest extends TestCase
     }
 
     /** @test */
-    public function test_it_validates_unique_colour_and_urgency() 
+    public function test_it_validates_unique_colour_and_urgency()
     {
         $priority = $this->create(\App\Priority::class);
 
