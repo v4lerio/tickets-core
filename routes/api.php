@@ -14,5 +14,7 @@ Route::middleware('auth:api')->group(function() {
     Route::resource('departments', 'DepartmentController');
     Route::resource('support_types', 'SupportTypeController');
     Route::resource('priorities', 'PriorityController');
+    Route::resource('tickets', 'TicketController');
+    Route::resource('article', 'ArticleController');
 });
 

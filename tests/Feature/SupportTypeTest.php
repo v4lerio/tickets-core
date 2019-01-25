@@ -95,13 +95,13 @@ class SupportTypeTest extends TestCase
     public function we_can_fetch_deleted_support_types()
     {
         $this->create(\App\SupportType::class, [], 10);
-        $org = \App\SupportType::first();
-        $org->delete();
+        $support_type = \App\SupportType::first();
+        $support_type->delete();
 
         $this->json('GET', '/api/support_types')
             ->assertStatus(200)
             ->assertJsonFragment([
-                'id' => $org->id
+                'id' => $support_type->id
             ]);
     }
 

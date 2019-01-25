@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Ticket;
 use Illuminate\Http\Request;
+use App\Http\Resources\TicketResource;
 
 class TicketController extends Controller
 {
@@ -14,7 +15,7 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //
+        return TicketResource::collection(Ticket::withTrashed()->get());
     }
 
     /**
@@ -25,7 +26,19 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'user_id' => 'sometimes|integer|exists:users,id',
+            'customer_id' => 'sometimes|integer|exists:customers,id',
+            'department_id' => 'required|integer|exists:departments,id',
+            'support_type_id' => 'sometimes|integer|exists:support_types,id',
+            'priority_id' => 'required|integer|exists:priorities,id',
+            'subject' => 'required',
+            'state' => 'required|in:open,closed'
+        ]);
+
+        $ticket = Ticket::create($data);
+
+        return new TicketResource($ticket);
     }
 
     /**
@@ -36,7 +49,13 @@ class TicketController extends Controller
      */
     public function show(Ticket $ticket)
     {
-        //
+        return new TicketResource($ticket->load([
+            'owner',
+            'customer',
+            'department',
+            'support_type',
+            'priority'
+        ]));
     }
 
     /**
@@ -48,7 +67,19 @@ class TicketController extends Controller
      */
     public function update(Request $request, Ticket $ticket)
     {
-        //
+        $data = $request->validate([
+            'user_id' => 'sometimes|integer|exists:users,id',
+            'customer_id' => 'sometimes|integer|exists:customers,id',
+            'department_id' => 'sometimes|required|integer|exists:departments,id',
+            'support_type_id' => 'sometimes|sometimes|integer|exists:support_types,id',
+            'priority_id' => 'sometimes|required|integer|exists:priorities,id',
+            'subject' => 'sometimes|required',
+            'state' => 'sometimes|required|in:open,closed'
+        ]);
+
+        $ticket->update($data);
+
+        return new TicketResource($ticket);
     }
 
     /**
@@ -59,6 +90,6 @@ class TicketController extends Controller
      */
     public function destroy(Ticket $ticket)
     {
-        //
+        $ticket->delete();
     }
 }
