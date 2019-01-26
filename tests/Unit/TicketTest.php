@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Database\Eloquent\Collection;
 
 class TicketTest extends TestCase
 {
@@ -53,6 +54,14 @@ class TicketTest extends TestCase
         $ticket = $this->create(\App\Ticket::class);
 
         $this->assertInstanceOf(\App\Priority::class, $ticket->priority);
+    }
+
+    /** @test */
+    public function it_has_many_articles() {
+        $ticket = $this->create(\App\Ticket::class);
+        $articles = $this->create(\App\Article::class, ['ticket_id' => $ticket->id], 5);
+
+        $this->assertInstanceOf(Collection::class, $ticket->articles);
     }
 
 }

@@ -50,4 +50,9 @@ class Ticket extends Model
         return $this->belongsTo(\App\Priority::class);
     }
 
+    public function articles()
+    {
+        return $this->hasMany(\App\Article::class);
+    }
+
 }
