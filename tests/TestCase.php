@@ -21,4 +21,8 @@ abstract class TestCase extends BaseTestCase
         return factory($model, $times)->create($data);
     }
 
+    protected function make($model, $data = [], $times = null) {
+        return factory($model, $times)->make($data);
+    }
+
 }
