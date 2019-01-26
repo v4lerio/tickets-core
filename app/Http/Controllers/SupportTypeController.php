@@ -31,9 +31,9 @@ class SupportTypeController extends Controller
             'name' => 'required'
         ]);
 
-        $organisation = SupportType::create($data);
+        $support_type = SupportType::create($data);
 
-        return new SupportTypeResource($organisation);
+        return new SupportTypeResource($support_type);
     }
 
     /**
