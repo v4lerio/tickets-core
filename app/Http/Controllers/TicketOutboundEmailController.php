@@ -6,6 +6,8 @@ use App\Ticket;
 use App\Article;
 use Illuminate\Http\Request;
 use App\Http\Resources\ArticleResource;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ArticleOutboundEmail;
 
 class TicketOutboundEmailController extends Controller
 {
@@ -31,6 +33,14 @@ class TicketOutboundEmailController extends Controller
         $data['user_id'] = \Auth::user()->id;
 
         $article = $ticket->articles()->create($data);
+            
+        $mail = Mail::to($article->to);
+        
+        if ($article->cc) {
+            $mail->cc($article->cc);
+        }
+        
+        $mail->queue(new ArticleOutboundEmail($article));
 
         return new ArticleResource($article);
     }
