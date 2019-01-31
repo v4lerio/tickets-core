@@ -6186,6 +6186,11 @@ table {
  * @import "utilities/skew-transforms";
  */
 
+#login_background {
+  background-image: url("/images/background.jpg");
+  background-size: cover;
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;

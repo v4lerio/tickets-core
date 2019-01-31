@@ -1,13 +1,12 @@
 <template>
     <div>
-        <h1>Tickets-Core</h1>
+        <!-- <h1>Tickets-Core</h1>
 
         <p>
             <router-link :to="{ name: 'home' }">Home</router-link> |
             <router-link :to="{ name: 'hello' }">Hello World</router-link>
-        </p>
-
-        <div class="container">
+        </p> -->
+        <div class="font-sans">
             <router-view></router-view>
         </div>
     </div>
