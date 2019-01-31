@@ -19,4 +19,4 @@ export default new VueRouter({
             component: Hello,
         },
     ],
-});
+})
