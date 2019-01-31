@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Vue Router Demo App</h1>
+        <h1>Tickets-Core</h1>
 
         <p>
             <router-link :to="{ name: 'home' }">Home</router-link> |
@@ -14,9 +14,5 @@
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+    export default {}
 </script>
