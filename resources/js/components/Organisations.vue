@@ -1,5 +1,11 @@
 <template>
-    <p>This is the Organisations page.</p>
+    <div>
+        <p>This is the Organisations page.</p>
+        <h4>Organisations</h4>
+        <ul>
+            <li v-for="org in organisations">{{ org.name }}</li>
+        </ul>
+    </div>
 </template>
 
 <script>

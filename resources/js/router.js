@@ -35,12 +35,19 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    if (to.name == 'login') {
+    // if we don't have a token and we're heading to the login page. go ahead.
+    if (to.name == 'login' && !localStorage.token) {
         return next()
     }
+    // if we have a token and we're heading to the login page, redirect to root.
+    if (to.name == 'login' && localStorage.token) {
+        return next('/')
+    }
+    // if we don't have a token, redirect to login
     if (!localStorage.token) {
         return next('/login')
     }
+    // continue to wherever
     return next()
 })
 

@@ -1927,6 +1927,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2737,7 +2743,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("p", [_vm._v("This is the Organisations page.")])
+  return _c("div", [
+    _c("p", [_vm._v("This is the Organisations page.")]),
+    _vm._v(" "),
+    _c("h4", [_vm._v("Organisations")]),
+    _vm._v(" "),
+    _c(
+      "ul",
+      _vm._l(_vm.organisations, function(org) {
+        return _c("li", [_vm._v(_vm._s(org.name))])
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -17039,13 +17057,21 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }]
 });
 router.beforeEach(function (to, from, next) {
-  if (to.name == 'login') {
+  // if we don't have a token and we're heading to the login page. go ahead.
+  if (to.name == 'login' && !localStorage.token) {
     return next();
-  }
+  } // if we have a token and we're heading to the login page, redirect to root.
+
+
+  if (to.name == 'login' && localStorage.token) {
+    return next('/');
+  } // if we don't have a token, redirect to login
+
 
   if (!localStorage.token) {
     return next('/login');
-  }
+  } // continue to wherever
+
 
   return next();
 });

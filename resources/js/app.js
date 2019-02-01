@@ -13,12 +13,12 @@ const Axios = axios.create({
     },
 });
 
-Axios.interceptors.request.use(function (config) {
+Axios.interceptors.request.use(config => {
     if (localStorage.token) {
         config.headers.authorization = "Bearer " + localStorage.getItem("token");
     }
     return config;
-}, function (error) {
+}, error => {
     return Promise.reject(error);
 });
 
