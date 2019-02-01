@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 // components
-import Home from './components/Home'
 import Login from './components/Login'
-import Hello from './components/Hello'
+import Dashboard from './components/Dashboard'
+import Customers from './components/Customers'
+import Organisations from './components/Organisations'
 
 Vue.use(VueRouter)
 
@@ -11,28 +12,36 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {
-            path: '/',
-            name: 'home',
-            component: Home
-        },
-        {
             path: '/login',
             name: 'login',
             component: Login
         },
         {
-            path: '/hello',
-            name: 'hello',
-            component: Hello,
+            path: '/',
+            name: 'dashboard',
+            component: Dashboard
+        },
+        {
+            path: '/customers',
+            name: 'customers',
+            component: Customers
+        },
+        {
+            path: '/organisations',
+            name: 'organisations',
+            component: Organisations
         },
     ],
 })
 
 router.beforeEach((to, from, next) => {
-    if (to.name == "login") {
+    if (to.name == 'login') {
         return next()
     }
-    return next('/login')
+    if (!localStorage.token) {
+        return next('/login')
+    }
+    return next()
 })
 
 export default router

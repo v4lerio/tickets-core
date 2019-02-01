@@ -1,11 +1,13 @@
 <template>
     <div>
-        <!-- <h1>Tickets-Core</h1>
-
-        <p>
-            <router-link :to="{ name: 'home' }">Home</router-link> |
-            <router-link :to="{ name: 'hello' }">Hello World</router-link>
-        </p> -->
+        <div v-if="logged_in()">
+            <h1>Tickets-Core</h1>
+            <p>
+                <router-link :to="{ name: 'dashboard' }">Dashboard</router-link> |
+                <router-link :to="{ name: 'customers' }">Customers</router-link> |
+                <router-link :to="{ name: 'organisations' }">Organisations</router-link>
+            </p>
+        </div>
         <div class="font-sans">
             <router-view></router-view>
         </div>
@@ -13,5 +15,15 @@
 </template>
 
 <script>
-    export default {}
+    export default {
+        methods: {
+            logged_in() {
+                if (localStorage.token) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+    }
 </script>

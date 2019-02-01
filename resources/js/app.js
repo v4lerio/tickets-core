@@ -13,8 +13,10 @@ const Axios = axios.create({
     },
 });
 
-axios.interceptors.request.use(function (config) {
-    // TODO: Check if we have a token saved and add it on as an Authorization header.
+Axios.interceptors.request.use(function (config) {
+    if (localStorage.token) {
+        config.headers.authorization = "Bearer " + localStorage.getItem("token");
+    }
     return config;
 }, function (error) {
     return Promise.reject(error);

@@ -43,7 +43,8 @@
                     password: this.password
                 })
                 .then(response => {
-
+                    localStorage.token = response.data.access_token;
+                    this.$router.push('/');
                 })
                 .catch(error => {
                     this.errors = [];
