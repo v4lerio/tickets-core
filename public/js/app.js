@@ -1900,6 +1900,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1926,7 +1937,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -1972,6 +1982,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2003,7 +2020,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -2789,38 +2805,60 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("p", [_vm._v("This is the Customers page.")]),
+    _c("h3", [_vm._v("Customers")]),
     _vm._v(" "),
-    _c("h4", [_vm._v("Customers")]),
-    _vm._v(" "),
-    _c(
-      "ul",
-      _vm._l(_vm.customers, function(customer) {
-        return _c(
-          "li",
-          [
+    _c("table", [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.customers, function(customer) {
+          return _c("tr", [
             _c(
-              "router-link",
-              {
-                attrs: {
-                  to: { name: "customers_show", params: { id: customer.id } }
-                }
-              },
-              [_vm._v(_vm._s(customer.name))]
+              "td",
+              [
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: {
+                        name: "customers_show",
+                        params: { id: customer.id }
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(customer.name))]
+                )
+              ],
+              1
             ),
             _vm._v(" "),
-            customer.organisation
-              ? _c("em", [_vm._v("- " + _vm._s(customer.organisation.name))])
-              : _vm._e()
-          ],
-          1
-        )
-      }),
-      0
-    )
+            _c("td", [
+              customer.organisation
+                ? _c("span", [_vm._v(_vm._s(customer.organisation.name))])
+                : _vm._e()
+            ])
+          ])
+        }),
+        0
+      )
+    ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Customer")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Organisation")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -2842,11 +2880,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("p", [_vm._v("This is the Customers show page.")]),
-    _vm._v(" "),
-    _c("h4", [_vm._v(_vm._s(_vm.customer.name))])
-  ])
+  return _c("div", [_c("h3", [_vm._v(_vm._s(_vm.customer.name))])])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2871,34 +2905,45 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("p", [_vm._v("This is the Organisations index page.")]),
+    _c("h3", [_vm._v("Organisations")]),
     _vm._v(" "),
-    _c("h4", [_vm._v("Organisations")]),
-    _vm._v(" "),
-    _c(
-      "ul",
-      _vm._l(_vm.organisations, function(org) {
-        return _c(
-          "li",
-          [
+    _c("table", [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.organisations, function(org) {
+          return _c("tr", [
             _c(
-              "router-link",
-              {
-                attrs: {
-                  to: { name: "organisations_show", params: { id: org.id } }
-                }
-              },
-              [_vm._v(_vm._s(org.name))]
+              "td",
+              [
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: { name: "organisations_show", params: { id: org.id } }
+                    }
+                  },
+                  [_vm._v(_vm._s(org.name))]
+                )
+              ],
+              1
             )
-          ],
-          1
-        )
-      }),
-      0
-    )
+          ])
+        }),
+        0
+      )
+    ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [_c("tr", [_c("th", [_vm._v("Organisation")])])])
+  }
+]
 render._withStripped = true
 
 
@@ -2920,11 +2965,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("p", [_vm._v("This is the Organisations show page.")]),
-    _vm._v(" "),
-    _c("h4", [_vm._v(_vm._s(_vm.organisation.name))])
-  ])
+  return _c("div", [_c("h3", [_vm._v(_vm._s(_vm.organisation.name))])])
 }
 var staticRenderFns = []
 render._withStripped = true

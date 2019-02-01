@@ -1,7 +1,6 @@
 <template>
     <div>
-        <p>This is the Organisations show page.</p>
-        <h4>{{ organisation.name }}</h4>
+        <h3>{{ organisation.name }}</h3>
     </div>
 </template>
 

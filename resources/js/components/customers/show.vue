@@ -1,7 +1,6 @@
 <template>
     <div>
-        <p>This is the Customers show page.</p>
-        <h4>{{ customer.name }}</h4>
+        <h3>{{ customer.name }}</h3>
     </div>
 </template>
 

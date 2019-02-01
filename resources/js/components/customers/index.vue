@@ -1,13 +1,24 @@
 <template>
     <div>
-        <p>This is the Customers page.</p>
-        <h4>Customers</h4>
-        <ul>
-            <li v-for="customer in customers">
-                <router-link :to="{ name: 'customers_show', params: { id: customer.id } }">{{ customer.name }}</router-link>
-                <em v-if="customer.organisation">- {{ customer.organisation.name }}</em>
-            </li>
-        </ul>
+        <h3>Customers</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Organisation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="customer in customers">
+                    <td>
+                        <router-link :to="{ name: 'customers_show', params: { id: customer.id } }">{{ customer.name }}</router-link>
+                    </td>
+                    <td>
+                        <span v-if="customer.organisation">{{ customer.organisation.name }}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 
