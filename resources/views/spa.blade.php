@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <title>TICKETS-CORE</title>
 </head>
-<body>
+<body class="bg-grey-lighter pb-6">
     <div id="app">
         <app></app>
     </div>

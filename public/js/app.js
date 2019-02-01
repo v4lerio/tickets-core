@@ -1779,6 +1779,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     logged_in: function logged_in() {
@@ -2571,39 +2576,78 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm.logged_in()
-      ? _c("div", [
-          _c("h1", [_vm._v("Tickets-Core")]),
-          _vm._v(" "),
-          _c(
-            "p",
-            [
-              _c("router-link", { attrs: { to: { name: "dashboard" } } }, [
-                _vm._v("Dashboard")
-              ]),
-              _vm._v(" |\n            "),
-              _c(
-                "router-link",
-                { attrs: { to: { name: "customers_index" } } },
-                [_vm._v("Customers")]
-              ),
-              _vm._v(" |\n            "),
-              _c(
-                "router-link",
-                { attrs: { to: { name: "organisations_index" } } },
-                [_vm._v("Organisations")]
-              )
-            ],
-            1
-          )
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _c("div", { staticClass: "font-sans" }, [_c("router-view")], 1)
-  ])
+  return _vm.logged_in()
+    ? _c("div", [
+        _c(
+          "nav",
+          {
+            staticClass:
+              "font-sans flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-blue shadow-lg sm:items-baseline w-full"
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "no-underline text-grey-lighter mx-4",
+                    attrs: { to: { name: "dashboard" } }
+                  },
+                  [_vm._v("Dashboard")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "no-underline text-grey-lighter mx-4",
+                    attrs: { to: { name: "customers_index" } }
+                  },
+                  [_vm._v("Customers")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "no-underline text-grey-lighter mx-4",
+                    attrs: { to: { name: "organisations_index" } }
+                  },
+                  [_vm._v("Organisations")]
+                )
+              ],
+              1
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "bg-white font-sans container mx-auto mt-6 rounded-lg p-6 shadow-lg"
+          },
+          [_c("router-view")],
+          1
+        )
+      ])
+    : _c("div", [_c("router-view")], 1)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "mb-2 sm:mb-0 font-thin italic uppercase text-grey-lighter"
+      },
+      [_c("span", [_vm._v("TICKETS-CORE")])]
+    )
+  }
+]
 render._withStripped = true
 
 
