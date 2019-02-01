@@ -4,8 +4,8 @@
             <h1>Tickets-Core</h1>
             <p>
                 <router-link :to="{ name: 'dashboard' }">Dashboard</router-link> |
-                <router-link :to="{ name: 'customers' }">Customers</router-link> |
-                <router-link :to="{ name: 'organisations' }">Organisations</router-link>
+                <router-link :to="{ name: 'customers_index' }">Customers</router-link> |
+                <router-link :to="{ name: 'organisations_index' }">Organisations</router-link>
             </p>
         </div>
         <div class="font-sans">

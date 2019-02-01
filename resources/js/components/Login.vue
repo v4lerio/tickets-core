@@ -38,7 +38,7 @@
         },
         methods: {
             login() {
-                this.axios.post('api/login', {
+                this.axios.post('/api/login', {
                     email: this.email,
                     password: this.password
                 })
