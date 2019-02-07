@@ -1,3 +1,6 @@
+import 'bootstrap'
+import './sb-admin-2'
+
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -29,3 +32,4 @@ const app = new Vue({
     components: { App },
     router: Router,
 })
+
