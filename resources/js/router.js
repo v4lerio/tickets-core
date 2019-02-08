@@ -7,10 +7,12 @@ import Dashboard from './components/Dashboard'
 // customer components
 import customers_index from './components/customers/index'
 import customers_show from './components/customers/show'
+import customers_create from './components/customers/create'
 
 // organisation components
 import organisations_index from './components/organisations/index'
 import organisations_show from './components/organisations/show'
+import organisations_create from './components/organisations/create'
 
 Vue.use(VueRouter)
 
@@ -21,9 +23,11 @@ const router = new VueRouter({
         { path: '/', name: 'dashboard', component: Dashboard },
         // customer routes
         { path: '/customers', name: 'customers_index', component: customers_index },
+        { path: '/customers/create', name: 'customers_create', component: customers_create },
         { path: '/customers/:id', name: 'customers_show', component: customers_show },
         // organisation routes
         { path: '/organisations', name: 'organisations_index', component: organisations_index },
+        { path: '/organisations/create', name: 'organisations_create', component: organisations_create },
         { path: '/organisations/:id', name: 'organisations_show', component: organisations_show },
     ],
 })

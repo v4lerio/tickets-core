@@ -57,7 +57,7 @@
         <div id="customer_menu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
           <div class="bg-white py-2 collapse-inner rounded">
             <router-link class="collapse-item" :to="{ name: 'customers_index' }">Customers</router-link>
-            <router-link class="collapse-item" :to="{ name: '' }">Create Customer</router-link>
+            <router-link class="collapse-item" :to="{ name: 'customers_create' }">Create Customer</router-link>
           </div>
         </div>
       </li>
@@ -70,7 +70,7 @@
         <div id="organisation_menu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
           <div class="bg-white py-2 collapse-inner rounded">
             <router-link class="collapse-item" :to="{ name: 'organisations_index' }">Organisations</router-link>
-            <router-link class="collapse-item" :to="{ name: '' }">Create Organisation</router-link>
+            <router-link class="collapse-item" :to="{ name: 'organisations_create' }">Create Organisation</router-link>
           </div>
         </div>
       </li>

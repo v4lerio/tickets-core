@@ -27,8 +27,8 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'organisation_id' => 'sometimes|required|exists:organisations,id',
-            'name' => 'required'
+            'organisation_id' => 'nullable|exists:organisations,id',
+            'name' => 'required|unique:customers'
         ]);
 
         $customer = Customer::create($data);
