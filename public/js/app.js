@@ -1953,8 +1953,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2013,8 +2011,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -20415,43 +20411,41 @@ var render = function() {
     _c("div", { staticClass: "card shadow mb-4" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("table", { staticClass: "table table-bordered table-sm" }, [
-          _vm._m(1),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.customers, function(customer) {
-              return _c("tr", { key: customer.id }, [
-                _c(
-                  "td",
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        attrs: {
-                          to: {
-                            name: "customers_show",
-                            params: { id: customer.id }
-                          }
+      _c("table", { staticClass: "table table-bordered table-sm mb-0" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.customers, function(customer) {
+            return _c("tr", { key: customer.id }, [
+              _c(
+                "td",
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "customers_show",
+                          params: { id: customer.id }
                         }
-                      },
-                      [_vm._v(_vm._s(customer.name))]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("td", [
-                  customer.organisation
-                    ? _c("span", [_vm._v(_vm._s(customer.organisation.name))])
-                    : _vm._e()
-                ])
+                      }
+                    },
+                    [_vm._v(_vm._s(customer.name))]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("td", [
+                customer.organisation
+                  ? _c("span", [_vm._v(_vm._s(customer.organisation.name))])
+                  : _vm._e()
               ])
-            }),
-            0
-          )
-        ])
+            ])
+          }),
+          0
+        )
       ])
     ])
   ])
@@ -20535,37 +20529,35 @@ var render = function() {
     _c("div", { staticClass: "card shadow mb-4" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("table", { staticClass: "table table-bordered table-sm" }, [
-          _vm._m(1),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.organisations, function(org) {
-              return _c("tr", { key: org.id }, [
-                _c(
-                  "td",
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        attrs: {
-                          to: {
-                            name: "organisations_show",
-                            params: { id: org.id }
-                          }
+      _c("table", { staticClass: "table table-bordered table-sm mb-0" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.organisations, function(org) {
+            return _c("tr", { key: org.id }, [
+              _c(
+                "td",
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "organisations_show",
+                          params: { id: org.id }
                         }
-                      },
-                      [_vm._v(_vm._s(org.name))]
-                    )
-                  ],
-                  1
-                )
-              ])
-            }),
-            0
-          )
-        ])
+                      }
+                    },
+                    [_vm._v(_vm._s(org.name))]
+                  )
+                ],
+                1
+              )
+            ])
+          }),
+          0
+        )
       ])
     ])
   ])
@@ -20926,7 +20918,7 @@ var staticRenderFns = [
                 staticClass: "form-control bg-light border-0 small",
                 attrs: {
                   type: "text",
-                  placeholder: "Search Tickets...",
+                  placeholder: "Search Tickets!",
                   "aria-label": "Search",
                   "aria-describedby": "basic-addon2"
                 }

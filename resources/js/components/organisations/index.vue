@@ -6,22 +6,20 @@
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Organisations</h6>
             </div>
-            <div class="card-body">
-                <table class="table table-bordered table-sm">
-                    <thead>
-                        <tr>
-                            <th>Organisation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="org in organisations" :key="org.id">
-                            <td>
-                                <router-link :to="{ name: 'organisations_show', params: { id: org.id } }">{{ org.name }}</router-link>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <table class="table table-bordered table-sm mb-0">
+                <thead>
+                    <tr>
+                        <th>Organisation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="org in organisations" :key="org.id">
+                        <td>
+                            <router-link :to="{ name: 'organisations_show', params: { id: org.id } }">{{ org.name }}</router-link>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </template>

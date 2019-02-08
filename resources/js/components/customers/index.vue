@@ -7,26 +7,24 @@
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Customers</h6>
             </div>
-            <div class="card-body">
-                <table class="table table-bordered table-sm">
-                    <thead>
-                        <tr>
-                            <th>Customer</th>
-                            <th>Organisation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="customer in customers" :key="customer.id">
-                            <td>
-                                <router-link :to="{ name: 'customers_show', params: { id: customer.id } }">{{ customer.name }}</router-link>
-                            </td>
-                            <td>
-                                <span v-if="customer.organisation">{{ customer.organisation.name }}</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <table class="table table-bordered table-sm mb-0">
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Organisation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="customer in customers" :key="customer.id">
+                        <td>
+                            <router-link :to="{ name: 'customers_show', params: { id: customer.id } }">{{ customer.name }}</router-link>
+                        </td>
+                        <td>
+                            <span v-if="customer.organisation">{{ customer.organisation.name }}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </template>
