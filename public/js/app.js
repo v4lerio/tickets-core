@@ -2258,7 +2258,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      collapsed: false
+    };
+  },
+  methods: {
+    toggleSidebar: function toggleSidebar() {
+      this.collapsed = !this.collapsed;
+    }
+  }
+});
 
 /***/ }),
 
@@ -20734,6 +20745,7 @@ var render = function() {
     {
       staticClass:
         "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion",
+      class: { toggled: _vm.collapsed },
       attrs: { id: "accordionSidebar" }
     },
     [
@@ -21000,7 +21012,13 @@ var render = function() {
       _vm._v(" "),
       _c("hr", { staticClass: "sidebar-divider d-none d-md-block" }),
       _vm._v(" "),
-      _vm._m(7)
+      _c("div", { staticClass: "text-center d-none d-md-inline" }, [
+        _c("button", {
+          staticClass: "rounded-circle border-0",
+          attrs: { id: "sidebarToggle" },
+          on: { click: _vm.toggleSidebar }
+        })
+      ])
     ]
   )
 }
@@ -21164,17 +21182,6 @@ var staticRenderFns = [
         _c("span", [_vm._v("Priorities")])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center d-none d-md-inline" }, [
-      _c("button", {
-        staticClass: "rounded-circle border-0",
-        attrs: { id: "sidebarToggle" }
-      })
-    ])
   }
 ]
 render._withStripped = true
@@ -36476,8 +36483,8 @@ router.beforeEach(function (to, from, next) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\GitRepos\tickets-core\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\GitRepos\tickets-core\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/tom/Documents/GitRepos/tickets-core/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/tom/Documents/GitRepos/tickets-core/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
