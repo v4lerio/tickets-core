@@ -12,6 +12,7 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
+
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
 		<router-link class="nav-link" :to="{ name: 'dashboard' }">
@@ -21,25 +22,38 @@
       </li>
 
       <!-- Divider -->
-      <hr class="sidebar-divider my-0">
+      <hr class="sidebar-divider">
+
+
+      <div class="sidebar-heading">
+        Customer Management
+      </div>
 
       <li class="nav-item">
-		<router-link class="nav-link" :to="{ name: 'customers_index' }">
-			<i class="fas fa-fw fa-user"></i>
-			<span>Customers</span>
-		</router-link>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#customer_menu" aria-expanded="true" aria-controls="customer_menu">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Customers</span>
+        </a>
+        <div id="customer_menu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <router-link class="collapse-item" :to="{ name: 'customers_index' }">Customers</router-link>
+            <router-link class="collapse-item" :to="{ name: '' }">Create Customer</router-link>
+          </div>
+        </div>
       </li>
-
-		<!-- Divider -->
-      <hr class="sidebar-divider my-0">
 
       <li class="nav-item">
-		<router-link class="nav-link" :to="{ name: 'organisations_index' }">
-			<i class="fas fa-fw fa-users"></i>
-			<span>Organisations</span>
-		</router-link>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#organisation_menu" aria-expanded="true" aria-controls="organisation_menu">
+          <i class="fas fa-fw fa-users"></i>
+          <span>Organisations</span>
+        </a>
+        <div id="organisation_menu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <router-link class="collapse-item" :to="{ name: 'organisations_index' }">Organisations</router-link>
+            <router-link class="collapse-item" :to="{ name: '' }">Create Organisation</router-link>
+          </div>
+        </div>
       </li>
-
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
