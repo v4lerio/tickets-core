@@ -21,6 +21,26 @@
 		</router-link>
       </li>
 
+            <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <div class="sidebar-heading">
+        Ticket Management
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tickets_menu" aria-expanded="true" aria-controls="tickets_menu">
+          <i class="fas fa-fw fa-ticket-alt"></i>
+          <span>Tickets</span>
+        </a>
+        <div id="tickets_menu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <router-link class="collapse-item" :to="{ name: '' }">Tickets</router-link>
+            <router-link class="collapse-item" :to="{ name: '' }">Create Ticket</router-link>
+          </div>
+        </div>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -51,6 +71,53 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <router-link class="collapse-item" :to="{ name: 'organisations_index' }">Organisations</router-link>
             <router-link class="collapse-item" :to="{ name: '' }">Create Organisation</router-link>
+          </div>
+        </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <div class="sidebar-heading">
+        Admin
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#departments_menu" aria-expanded="true" aria-controls="departments_menu">
+          <i class="fas fa-fw fa-sitemap"></i>
+          <span>Departments</span>
+        </a>
+        <div id="departments_menu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <router-link class="collapse-item" :to="{ name: '' }">Departments</router-link>
+            <router-link class="collapse-item" :to="{ name: '' }">Create Department</router-link>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#support_types_menu" aria-expanded="true" aria-controls="support_types_menu">
+          <i class="fas fa-fw fa-question"></i>
+          <span>Support Types</span>
+        </a>
+        <div id="support_types_menu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <router-link class="collapse-item" :to="{ name: '' }">Support Types</router-link>
+            <router-link class="collapse-item" :to="{ name: '' }">Create Support Type</router-link>
+          </div>
+        </div>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#priorities_menu" aria-expanded="true" aria-controls="priorities_menu">
+          <i class="fas fa-fw fa-exclamation"></i>
+          <span>Priorities</span>
+        </a>
+        <div id="priorities_menu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <router-link class="collapse-item" :to="{ name: '' }">Priorities</router-link>
+            <router-link class="collapse-item" :to="{ name: '' }">Create Priority</router-link>
           </div>
         </div>
       </li>

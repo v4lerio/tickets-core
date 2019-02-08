@@ -2191,6 +2191,73 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -20694,11 +20761,53 @@ var render = function() {
       _c("hr", { staticClass: "sidebar-divider" }),
       _vm._v(" "),
       _c("div", { staticClass: "sidebar-heading" }, [
-        _vm._v("\n        Customer Management\n      ")
+        _vm._v("\n        Ticket Management\n      ")
       ]),
       _vm._v(" "),
       _c("li", { staticClass: "nav-item" }, [
         _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse",
+            attrs: {
+              id: "tickets_menu",
+              "aria-labelledby": "headingTwo",
+              "data-parent": "#accordionSidebar"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "bg-white py-2 collapse-inner rounded" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "collapse-item", attrs: { to: { name: "" } } },
+                  [_vm._v("Tickets")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  { staticClass: "collapse-item", attrs: { to: { name: "" } } },
+                  [_vm._v("Create Ticket")]
+                )
+              ],
+              1
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("hr", { staticClass: "sidebar-divider" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "sidebar-heading" }, [
+        _vm._v("\n        Customer Management\n      ")
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "nav-item" }, [
+        _vm._m(2),
         _vm._v(" "),
         _c(
           "div",
@@ -20737,7 +20846,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("li", { staticClass: "nav-item" }, [
-        _vm._m(2),
+        _vm._m(3),
         _vm._v(" "),
         _c(
           "div",
@@ -20775,9 +20884,123 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
+      _c("hr", { staticClass: "sidebar-divider" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "sidebar-heading" }, [
+        _vm._v("\n        Admin\n      ")
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "nav-item" }, [
+        _vm._m(4),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse",
+            attrs: {
+              id: "departments_menu",
+              "aria-labelledby": "headingTwo",
+              "data-parent": "#accordionSidebar"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "bg-white py-2 collapse-inner rounded" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "collapse-item", attrs: { to: { name: "" } } },
+                  [_vm._v("Departments")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  { staticClass: "collapse-item", attrs: { to: { name: "" } } },
+                  [_vm._v("Create Department")]
+                )
+              ],
+              1
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "nav-item" }, [
+        _vm._m(5),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse",
+            attrs: {
+              id: "support_types_menu",
+              "aria-labelledby": "headingTwo",
+              "data-parent": "#accordionSidebar"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "bg-white py-2 collapse-inner rounded" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "collapse-item", attrs: { to: { name: "" } } },
+                  [_vm._v("Support Types")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  { staticClass: "collapse-item", attrs: { to: { name: "" } } },
+                  [_vm._v("Create Support Type")]
+                )
+              ],
+              1
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "nav-item" }, [
+        _vm._m(6),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse",
+            attrs: {
+              id: "priorities_menu",
+              "aria-labelledby": "headingTwo",
+              "data-parent": "#accordionSidebar"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "bg-white py-2 collapse-inner rounded" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "collapse-item", attrs: { to: { name: "" } } },
+                  [_vm._v("Priorities")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  { staticClass: "collapse-item", attrs: { to: { name: "" } } },
+                  [_vm._v("Create Priority")]
+                )
+              ],
+              1
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
       _c("hr", { staticClass: "sidebar-divider d-none d-md-block" }),
       _vm._v(" "),
-      _vm._m(3)
+      _vm._m(7)
     ]
   )
 }
@@ -20801,6 +21024,29 @@ var staticRenderFns = [
         _c("div", { staticClass: "sidebar-brand-text mx-3" }, [
           _vm._v("Tickets!")
         ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "nav-link collapsed",
+        attrs: {
+          href: "#",
+          "data-toggle": "collapse",
+          "data-target": "#tickets_menu",
+          "aria-expanded": "true",
+          "aria-controls": "tickets_menu"
+        }
+      },
+      [
+        _c("i", { staticClass: "fas fa-fw fa-ticket-alt" }),
+        _vm._v(" "),
+        _c("span", [_vm._v("Tickets")])
       ]
     )
   },
@@ -20847,6 +21093,75 @@ var staticRenderFns = [
         _c("i", { staticClass: "fas fa-fw fa-users" }),
         _vm._v(" "),
         _c("span", [_vm._v("Organisations")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "nav-link collapsed",
+        attrs: {
+          href: "#",
+          "data-toggle": "collapse",
+          "data-target": "#departments_menu",
+          "aria-expanded": "true",
+          "aria-controls": "departments_menu"
+        }
+      },
+      [
+        _c("i", { staticClass: "fas fa-fw fa-sitemap" }),
+        _vm._v(" "),
+        _c("span", [_vm._v("Departments")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "nav-link collapsed",
+        attrs: {
+          href: "#",
+          "data-toggle": "collapse",
+          "data-target": "#support_types_menu",
+          "aria-expanded": "true",
+          "aria-controls": "support_types_menu"
+        }
+      },
+      [
+        _c("i", { staticClass: "fas fa-fw fa-question" }),
+        _vm._v(" "),
+        _c("span", [_vm._v("Support Types")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "nav-link collapsed",
+        attrs: {
+          href: "#",
+          "data-toggle": "collapse",
+          "data-target": "#priorities_menu",
+          "aria-expanded": "true",
+          "aria-controls": "priorities_menu"
+        }
+      },
+      [
+        _c("i", { staticClass: "fas fa-fw fa-exclamation" }),
+        _vm._v(" "),
+        _c("span", [_vm._v("Priorities")])
       ]
     )
   },
