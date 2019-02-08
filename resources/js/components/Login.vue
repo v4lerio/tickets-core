@@ -1,56 +1,71 @@
 <template>
-    <div class="bg-grey h-screen px-2" id="login_background">
-        <div class="container mx-auto h-full flex justify-center items-center"> <!-- container -->
+	<div class="container">
+		<!-- Outer Row -->
+		<div class="row justify-content-center">
 
-            <div class="md:w-1/2 xl:w-1/3 w-full"> <!-- login card -->
-                <header class="text-center p-4 text-3xl font-thin italic uppercase text-blue-lighter bg-blue rounded-lg rounded-b-none">
-                    tickets-core
-                </header>
-                <div class="shadow-lg bg-white py-1 rounded-lg rounded-t-none">
-                    <div v-if="errors.length > 0" class="text-red text-center mt-1">
-                        <em v-for="error in errors">{{ error }}</em>
-                    </div>
-                    <form @submit.prevent="login">
-                        <div class="m-6">
-                            <input class="border rounded py-2 px-3 h-full w-full" type="text" placeholder="Email Address..." v-model="email" required>
-                        </div>
-                        <div class="m-6">
-                            <input class="border rounded py-2 px-3 h-full w-full" type="password" placeholder="Password..." v-model="password" required>
-                        </div>
-                        <div class="m-6 text-center">
-                            <button class="bg-blue hover:bg-blue-dark shadow py-3 px-12 text-white rounded-full" type="submit">Login</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+			<div class="col-sm-9 col-lg-6">
+
+				<div class="card o-hidden border-0 shadow-lg my-5">
+					<div class="card-body p-0">
+						<!-- Nested Row within Card Body -->
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="p-5">
+									<div class="text-center">
+										<h1 class="h4 text-gray-900 mb-4">Welcome Back to Tickets!</h1>
+									</div>
+									<div v-if="errors.length > 0" class="alert alert-danger">
+										<em v-for="error in errors" :key="error">{{ error }}</em>
+									</div>
+									<form class="user" @submit.prevent="login">
+										<div class="form-group">
+											<input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email Address..." autocomplete="off" v-model="email">
+										</div>
+										<div class="form-group">
+											<input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" autocomplete="off" v-model="password">
+										</div>
+										<button class="btn btn-primary btn-user btn-block">
+											Login
+										</button>
+									</form>
+									<hr>
+									<div class="text-center">
+										<a class="small" href="forgot-password.html">Forgot Password?</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                email: "",
-                password: "",
-                errors: []
-            }
-        },
-        methods: {
-            login() {
-                this.axios.post('/api/login', {
-                    email: this.email,
-                    password: this.password
-                })
-                .then(response => {
-                    localStorage.token = response.data.access_token;
-                    this.$router.push('/');
-                })
-                .catch(error => {
-                    this.errors = [];
-                    this.errors.push('Incorrect Username or Password.')
-                });
-            }
-        }
-    }
+		export default {
+				data() {
+						return {
+								email: "",
+								password: "",
+								errors: []
+						}
+				},
+				methods: {
+						login() {
+								this.axios.post('/api/login', {
+										email: this.email,
+										password: this.password
+								})
+								.then(response => {
+										localStorage.token = response.data.access_token;
+										this.$router.push('/');
+								})
+								.catch(error => {
+										this.errors = [];
+										this.errors.push('Incorrect Username or Password.')
+								});
+						}
+				}
+		}
 </script>

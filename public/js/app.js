@@ -1784,6 +1784,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -1837,6 +1839,21 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1929,6 +1946,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1987,6 +2013,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -20125,7 +20159,16 @@ var render = function() {
                 _c(
                   "div",
                   { attrs: { id: "content" } },
-                  [_c("admin_topbar"), _vm._v(" "), _c("router-view")],
+                  [
+                    _c("admin_topbar"),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "container-fluid" },
+                      [_c("router-view")],
+                      1
+                    )
+                  ],
                   1
                 ),
                 _vm._v(" "),
@@ -20161,7 +20204,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("p", [_vm._v("This is the Dashboard!")])
+  return _c("h1", { staticClass: "h3 mb-0 text-gray-800" }, [
+    _vm._v("Dashboard")
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -20185,136 +20230,144 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "bg-grey h-screen px-2", attrs: { id: "login_background" } },
-    [
-      _c(
-        "div",
-        {
-          staticClass:
-            "container mx-auto h-full flex justify-center items-center"
-        },
-        [
-          _c("div", { staticClass: "md:w-1/2 xl:w-1/3 w-full" }, [
-            _c(
-              "header",
-              {
-                staticClass:
-                  "text-center p-4 text-3xl font-thin italic uppercase text-blue-lighter bg-blue rounded-lg rounded-b-none"
-              },
-              [_vm._v("\n                tickets-core\n            ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "shadow-lg bg-white py-1 rounded-lg rounded-t-none"
-              },
-              [
-                _vm.errors.length > 0
-                  ? _c(
-                      "div",
-                      { staticClass: "text-red text-center mt-1" },
-                      _vm._l(_vm.errors, function(error) {
-                        return _c("em", [_vm._v(_vm._s(error))])
-                      }),
-                      0
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _c(
-                  "form",
-                  {
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.login($event)
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-sm-9 col-lg-6" }, [
+        _c("div", { staticClass: "card o-hidden border-0 shadow-lg my-5" }, [
+          _c("div", { staticClass: "card-body p-0" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-12" }, [
+                _c("div", { staticClass: "p-5" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _vm.errors.length > 0
+                    ? _c(
+                        "div",
+                        { staticClass: "alert alert-danger" },
+                        _vm._l(_vm.errors, function(error) {
+                          return _c("em", { key: error }, [
+                            _vm._v(_vm._s(error))
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c(
+                    "form",
+                    {
+                      staticClass: "user",
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.login($event)
+                        }
                       }
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "m-6" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.email,
-                            expression: "email"
-                          }
-                        ],
-                        staticClass: "border rounded py-2 px-3 h-full w-full",
-                        attrs: {
-                          type: "text",
-                          placeholder: "Email Address...",
-                          required: ""
-                        },
-                        domProps: { value: _vm.email },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                    },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.email,
+                              expression: "email"
                             }
-                            _vm.email = $event.target.value
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "m-6" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.password,
-                            expression: "password"
-                          }
-                        ],
-                        staticClass: "border rounded py-2 px-3 h-full w-full",
-                        attrs: {
-                          type: "password",
-                          placeholder: "Password...",
-                          required: ""
-                        },
-                        domProps: { value: _vm.password },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                          ],
+                          staticClass: "form-control form-control-user",
+                          attrs: {
+                            type: "email",
+                            id: "exampleInputEmail",
+                            "aria-describedby": "emailHelp",
+                            placeholder: "Email Address...",
+                            autocomplete: "off"
+                          },
+                          domProps: { value: _vm.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.email = $event.target.value
                             }
-                            _vm.password = $event.target.value
                           }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(0)
-                  ]
-                )
-              ]
-            )
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.password,
+                              expression: "password"
+                            }
+                          ],
+                          staticClass: "form-control form-control-user",
+                          attrs: {
+                            type: "password",
+                            id: "exampleInputPassword",
+                            placeholder: "Password",
+                            autocomplete: "off"
+                          },
+                          domProps: { value: _vm.password },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.password = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        { staticClass: "btn btn-primary btn-user btn-block" },
+                        [
+                          _vm._v(
+                            "\n\t\t\t\t\t\t\t\t\t\tLogin\n\t\t\t\t\t\t\t\t\t"
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ])
+              ])
+            ])
           ])
-        ]
-      )
-    ]
-  )
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "m-6 text-center" }, [
+    return _c("div", { staticClass: "text-center" }, [
+      _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
+        _vm._v("Welcome Back to Tickets!")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
       _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue hover:bg-blue-dark shadow py-3 px-12 text-white rounded-full",
-          attrs: { type: "submit" }
-        },
-        [_vm._v("Login")]
+        "a",
+        { staticClass: "small", attrs: { href: "forgot-password.html" } },
+        [_vm._v("Forgot Password?")]
       )
     ])
   }
@@ -20341,47 +20394,65 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h3", [_vm._v("Customers")]),
+    _c("h1", { staticClass: "h3 mb-2 text-gray-800" }, [_vm._v("Customers")]),
     _vm._v(" "),
-    _c("table", [
+    _c("p", [_vm._v("A list of all the customers in your system.")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card shadow mb-4" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.customers, function(customer) {
-          return _c("tr", [
-            _c(
-              "td",
-              [
+      _c("div", { staticClass: "card-body" }, [
+        _c("table", { staticClass: "table table-bordered table-sm" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.customers, function(customer) {
+              return _c("tr", { key: customer.id }, [
                 _c(
-                  "router-link",
-                  {
-                    attrs: {
-                      to: {
-                        name: "customers_show",
-                        params: { id: customer.id }
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(customer.name))]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("td", [
-              customer.organisation
-                ? _c("span", [_vm._v(_vm._s(customer.organisation.name))])
-                : _vm._e()
-            ])
-          ])
-        }),
-        0
-      )
+                  "td",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: {
+                            name: "customers_show",
+                            params: { id: customer.id }
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(customer.name))]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("td", [
+                  customer.organisation
+                    ? _c("span", [_vm._v(_vm._s(customer.organisation.name))])
+                    : _vm._e()
+                ])
+              ])
+            }),
+            0
+          )
+        ])
+      ])
     ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header py-3" }, [
+      _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
+        _vm._v("Customers")
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -20441,38 +20512,61 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h3", [_vm._v("Organisations")]),
+    _c("h1", { staticClass: "h3 mb-2 text-gray-800" }, [
+      _vm._v("Organisations")
+    ]),
     _vm._v(" "),
-    _c("table", [
+    _c("p", [_vm._v("A list of all the organisations in your system.")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card shadow mb-4" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.organisations, function(org) {
-          return _c("tr", [
-            _c(
-              "td",
-              [
+      _c("div", { staticClass: "card-body" }, [
+        _c("table", { staticClass: "table table-bordered table-sm" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.organisations, function(org) {
+              return _c("tr", { key: org.id }, [
                 _c(
-                  "router-link",
-                  {
-                    attrs: {
-                      to: { name: "organisations_show", params: { id: org.id } }
-                    }
-                  },
-                  [_vm._v(_vm._s(org.name))]
+                  "td",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: {
+                            name: "organisations_show",
+                            params: { id: org.id }
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(org.name))]
+                    )
+                  ],
+                  1
                 )
-              ],
-              1
-            )
-          ])
-        }),
-        0
-      )
+              ])
+            }),
+            0
+          )
+        ])
+      ])
     ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header py-3" }, [
+      _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
+        _vm._v("Organisations")
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -20535,7 +20629,7 @@ var staticRenderFns = [
     return _c("footer", { staticClass: "sticky-footer bg-white" }, [
       _c("div", { staticClass: "container my-auto" }, [
         _c("div", { staticClass: "copyright text-center my-auto" }, [
-          _c("span", [_vm._v("Copyright © Your Website 2019")])
+          _c("span", [_vm._v("Tickets!")])
         ])
       ])
     ])
@@ -20659,7 +20753,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "sidebar-brand-text mx-3" }, [
-          _vm._v("Tickets")
+          _vm._v("Tickets!")
         ])
       ]
     )
@@ -20732,7 +20826,7 @@ var staticRenderFns = [
                 staticClass: "form-control bg-light border-0 small",
                 attrs: {
                   type: "text",
-                  placeholder: "Search for...",
+                  placeholder: "Search Tickets...",
                   "aria-label": "Search",
                   "aria-describedby": "basic-addon2"
                 }

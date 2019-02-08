@@ -5,7 +5,9 @@
 			<div id="content-wrapper" class="d-flex flex-column">
 				<div id="content">
 					<admin_topbar></admin_topbar>
-					<router-view></router-view>
+					<div class="container-fluid">
+						<router-view></router-view>
+					</div>
 				</div>
 				<admin_footer></admin_footer>
 			</div>
