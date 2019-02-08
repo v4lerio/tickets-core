@@ -29,10 +29,7 @@
 					admin_footer
 				},
 				data() {
-						return {};
-								// <router-link class="no-underline text-grey-lighter mx-4" :to="{ name: 'dashboard' }">Dashboard</router-link>
-								// <router-link class="no-underline text-grey-lighter mx-4" :to="{ name: 'customers_index' }">Customers</router-link>
-								// <router-link class="no-underline text-grey-lighter mx-4" :to="{ name: 'organisations_index' }">Organisations</router-link>
+					return {};
 				},
 				methods: {
 						logged_in() {
