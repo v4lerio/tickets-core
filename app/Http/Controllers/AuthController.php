@@ -8,22 +8,11 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
 
-	public function register() {
-        $data = request()->validate([
-            'email' => 'required|unique:users|email',
-            'name' => 'required',
+    public function login(Request $request) {
+        $credentials = $request->validate([
+            'email' => 'required|email',
             'password' => 'required'
         ]);
-
-        $user = User::create($data);
-
-        $token = auth()->login($user);
-
-        return $this->respondWithToken($token);
-    }
-
-    public function login() {
-        $credentials = request(['email', 'password']);
 
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -31,6 +20,12 @@ class AuthController extends Controller
 
         return $this->respondWithToken($token);
     }
+    
+    public function refresh()
+    {
+        return $this->respondWithToken(auth()->refresh());
+    }
+
 
     public function logout() {
         auth()->logout();

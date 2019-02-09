@@ -2,11 +2,11 @@
 
 use Illuminate\Http\Request;
 
-Route::post('/register', 'AuthController@register'); // leave registration open for now
 Route::post('/login', 'AuthController@login');
 Route::post('/logout', 'AuthController@logout');
 
 Route::middleware('auth:api')->group(function() {
+    Route::post('/refresh', 'AuthController@refresh');
     Route::resource('organisations', 'OrganisationController');
     Route::resource('customers', 'CustomerController');
     Route::resource('departments', 'DepartmentController');
