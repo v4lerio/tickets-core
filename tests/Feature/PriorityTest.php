@@ -109,18 +109,4 @@ class PriorityTest extends TestCase
         $this->assertTrue($priority->fresh()->trashed());
     }
 
-    /** @test */
-    public function we_can_fetch_deleted_priorities()
-    {
-        $this->create(\App\Priority::class, [], 2);
-        $org = \App\Priority::first();
-        $org->delete();
-
-        $this->json('GET', '/api/priorities')
-            ->assertStatus(200)
-            ->assertJsonFragment([
-                'id' => $org->id
-            ]);
-    }
-
 }

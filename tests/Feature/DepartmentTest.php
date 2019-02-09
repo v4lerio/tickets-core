@@ -109,17 +109,4 @@ class DepartmentTest extends TestCase
         $this->assertTrue($department->fresh()->trashed());
     }
 
-    /** @test */
-    public function we_can_fetch_deleted_departments()
-    {
-        $this->create(\App\Department::class, [], 10);
-        $department = \App\Department::first();
-        $department->delete();
-
-        $this->json('GET', '/api/departments')
-            ->assertStatus(200)
-            ->assertJsonFragment([
-                'id' => $department->id
-            ]);
-    }
 }

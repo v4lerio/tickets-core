@@ -154,19 +154,4 @@ class TicketTest extends TestCase
         $this->assertTrue($ticket->fresh()->trashed());
     }
 
-    /** @test */
-    public function we_can_fetch_deleted_support_types()
-    {
-        $this->create(\App\Ticket::class, [], 10);
-        $ticket = \App\Ticket::first();
-        $ticket->delete();
-
-        $this->json('GET', '/api/tickets')
-            ->assertStatus(200)
-            ->assertJsonFragment([
-                'id' => $ticket->id
-            ]);
-    }
-
-
 }

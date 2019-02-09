@@ -15,7 +15,7 @@ class SupportTypeController extends Controller
      */
     public function index()
     {
-        return SupportTypeResource::collection(SupportType::withTrashed()->get());
+        return SupportTypeResource::collection(SupportType::all());
     }
 
     /**

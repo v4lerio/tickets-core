@@ -15,7 +15,7 @@ class PriorityController extends Controller
      */
     public function index()
     {
-        return PriorityResource::collection(Priority::withTrashed()->get());
+        return PriorityResource::collection(Priority::all());
     }
 
     /**
@@ -63,7 +63,7 @@ class PriorityController extends Controller
             'urgency' => 'sometimes|required'
         ]));
 
-        return new PriorityResource($priority);   
+        return new PriorityResource($priority);
     }
 
     /**

@@ -91,18 +91,4 @@ class OrganisationTest extends TestCase
         $this->assertTrue($organisation->fresh()->trashed());
     }
 
-    /** @test */
-    public function we_can_fetch_deleted_organisations()
-    {
-        $this->create(\App\Organisation::class, [], 10);
-        $org = \App\Organisation::first();
-        $org->delete();
-
-        $this->json('GET', '/api/organisations')
-            ->assertStatus(200)
-            ->assertJsonFragment([
-                'id' => $org->id
-            ]);
-    }
-
 }

@@ -92,20 +92,6 @@ class CustomerTest extends TestCase
     }
 
     /** @test */
-    public function we_can_fetch_deleted_customers()
-    {
-        $this->create(\App\Customer::class, [], 10);
-        $customer = \App\Customer::first();
-        $customer->delete();
-
-        $this->json('GET', '/api/customers')
-            ->assertStatus(200)
-            ->assertJsonFragment([
-                'id' => $customer->id
-            ]);
-    }
-
-    /** @test */
     public function we_can_create_a_customer_against_an_organisation()
     {
         $org = $this->create(\App\Organisation::class);
@@ -114,7 +100,7 @@ class CustomerTest extends TestCase
             'organisation_id' => $org->id,
             'name' => $this->faker->name
         ])->assertStatus(201);
-        
+
         $id = $response->decodeResponseJson()['data']['id'];
 
         $customer = $this->json('GET', '/api/customers/' . $id)
@@ -133,7 +119,7 @@ class CustomerTest extends TestCase
         $org2 = $this->create(\App\Organisation::class);
         $response = $this->json('PATCH', $customer->path(), ['organisation_id' => $org2->id])
             ->assertStatus(200);
-        
+
         $response = $this->json('GET', $customer->path())
             ->assertStatus(200)
             ->assertJsonFragment(['name' => $org2->name]);

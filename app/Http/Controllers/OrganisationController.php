@@ -15,7 +15,7 @@ class OrganisationController extends Controller
      */
     public function index()
     {
-        return OrganisationResource::collection(Organisation::withTrashed()->get());
+        return OrganisationResource::collection(Organisation::all());
     }
 
     /**

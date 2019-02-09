@@ -15,7 +15,7 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        return DepartmentResource::collection(Department::withTrashed()->get());
+        return DepartmentResource::collection(Department::all());
     }
 
     /**

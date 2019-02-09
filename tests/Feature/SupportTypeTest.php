@@ -92,20 +92,6 @@ class SupportTypeTest extends TestCase
     }
 
     /** @test */
-    public function we_can_fetch_deleted_support_types()
-    {
-        $this->create(\App\SupportType::class, [], 10);
-        $support_type = \App\SupportType::first();
-        $support_type->delete();
-
-        $this->json('GET', '/api/support_types')
-            ->assertStatus(200)
-            ->assertJsonFragment([
-                'id' => $support_type->id
-            ]);
-    }
-
-    /** @test */
     public function we_can_create_a_support_type_with_parent() {
         $parent = $this->create(\App\SupportType::class);
 
