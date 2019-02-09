@@ -43,8 +43,9 @@ class DepartmentTest extends TestCase
     /** @test */
     public function we_can_create_a_new_department()
     {
+        $user = $this->create(\App\User::class);
         $name = $this->faker->company;
-        $this->json('POST', '/api/departments', ['name' => $name])
+        $this->json('POST', '/api/departments', ['name' => $name, 'manager_id' => $user->id])
             ->assertStatus(201)
             ->assertJsonFragment(["name" => $name]);
     }
@@ -83,7 +84,7 @@ class DepartmentTest extends TestCase
     public function it_validates_manager_on_create()
     {
         $name = $this->faker->company;
-        $this->json('POST', '/api/departments', ['name' => $name, 'manager_id' => 1])
+        $this->json('POST', '/api/departments', ['name' => $name, 'manager_id' => 2])
             ->assertStatus(422)
             ->assertJsonFragment(["The selected manager id is invalid."]);
     }
@@ -93,7 +94,7 @@ class DepartmentTest extends TestCase
     {
         $department = $this->create(\App\Department::class);
 
-        $this->json('PATCH', $department->path(), ['manager_id' => 1])
+        $this->json('PATCH', $department->path(), ['manager_id' => 99])
             ->assertStatus(422)
             ->assertJsonFragment(["The selected manager id is invalid."]);
     }
