@@ -15,7 +15,7 @@ class SupportTypeController extends Controller
      */
     public function index()
     {
-        return SupportTypeResource::collection(SupportType::all());
+        return SupportTypeResource::collection(SupportType::with('children', 'parent')->get());
     }
 
     /**
@@ -27,7 +27,7 @@ class SupportTypeController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'parent_id' => 'sometimes|required|exists:support_types,id',
+            'parent_id' => 'nullable|exists:support_types,id',
             'name' => 'required'
         ]);
 
@@ -57,7 +57,7 @@ class SupportTypeController extends Controller
     public function update(Request $request, SupportType $supportType)
     {
         $supportType->update($request->validate([
-            'parent_id' => 'sometimes|required|exists:support_types,id',
+            'parent_id' => 'nullable|exists:support_types,id',
             'name' => 'sometimes|required'
         ]));
 

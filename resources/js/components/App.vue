@@ -6,7 +6,7 @@
 				<div id="content">
 					<admin_topbar></admin_topbar>
 					<div class="container-fluid">
-						<router-view></router-view>
+						<router-view :key="$route.fullPath"></router-view>
 					</div>
 				</div>
 				<admin_footer></admin_footer>

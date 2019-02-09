@@ -89,8 +89,8 @@
         </a>
         <div id="departments_menu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
           <div class="bg-white py-2 collapse-inner rounded">
-            <router-link class="collapse-item" :to="{ name: '' }">Departments</router-link>
-            <router-link class="collapse-item" :to="{ name: '' }">Create Department</router-link>
+            <router-link class="collapse-item" :to="{ name: 'departments_index' }">Departments</router-link>
+            <router-link class="collapse-item" :to="{ name: 'departments_create' }">Create Department</router-link>
           </div>
         </div>
       </li>
@@ -102,8 +102,8 @@
         </a>
         <div id="support_types_menu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
           <div class="bg-white py-2 collapse-inner rounded">
-            <router-link class="collapse-item" :to="{ name: '' }">Support Types</router-link>
-            <router-link class="collapse-item" :to="{ name: '' }">Create Support Type</router-link>
+            <router-link class="collapse-item" :to="{ name: 'support_types_index' }">Support Types</router-link>
+            <router-link class="collapse-item" :to="{ name: 'support_types_create' }">Create Support Type</router-link>
           </div>
         </div>
       </li>
@@ -116,8 +116,8 @@
         </a>
         <div id="priorities_menu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
           <div class="bg-white py-2 collapse-inner rounded">
-            <router-link class="collapse-item" :to="{ name: '' }">Priorities</router-link>
-            <router-link class="collapse-item" :to="{ name: '' }">Create Priority</router-link>
+            <router-link class="collapse-item" :to="{ name: 'priorities_index' }">Priorities</router-link>
+            <router-link class="collapse-item" :to="{ name: 'priorities_create' }">Create Priority</router-link>
           </div>
         </div>
       </li>
@@ -129,8 +129,8 @@
         </a>
         <div id="Users_menu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
           <div class="bg-white py-2 collapse-inner rounded">
-            <router-link class="collapse-item" :to="{ name: '' }">Users</router-link>
-            <router-link class="collapse-item" :to="{ name: '' }">Create User</router-link>
+            <router-link class="collapse-item" :to="{ name: 'users_index' }">Users</router-link>
+            <router-link class="collapse-item" :to="{ name: 'users_create' }">Create User</router-link>
           </div>
         </div>
       </li>

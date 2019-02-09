@@ -1,21 +1,21 @@
 <template>
     <div>
-        <h1 class="h3 mb-2 text-gray-800">Organisations</h1>
-        <p>A list of all the organisations in your system.</p>
+        <h1 class="h3 mb-2 text-gray-800">Support Types</h1>
+        <p>A list of all the support types in your system.</p>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Organisations</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Support Types</h6>
             </div>
             <table class="table table-bordered table-sm mb-0">
                 <thead>
                     <tr>
-                        <th>Organisation</th>
+                        <th>Support Type</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="org in organisations" :key="org.id">
+                    <tr v-for="st in support_types" :key="st.id">
                         <td>
-                            <router-link :to="{ name: 'organisations_show', params: { id: org.id } }">{{ org.name }}</router-link>
+                            <router-link :to="{ name: 'support_types_show', params: { id: st.id } }">{{ st.name }}</router-link>
                         </td>
                     </tr>
                 </tbody>
@@ -28,13 +28,13 @@
     export default {
         data() {
             return {
-                organisations: []
+                support_types: []
             }
         },
         created() {
-            this.axios.get('/api/organisations')
+            this.axios.get('/api/support_types')
             .then(response => {
-                this.organisations = response.data.data;
+                this.support_types = response.data.data;
             })
         }
     }
