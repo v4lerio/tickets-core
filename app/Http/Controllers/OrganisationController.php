@@ -15,7 +15,7 @@ class OrganisationController extends Controller
      */
     public function index()
     {
-        return OrganisationResource::collection(Organisation::all());
+        return OrganisationResource::collection(Organisation::orderBy("name")->get());
     }
 
     /**
