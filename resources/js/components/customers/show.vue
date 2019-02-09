@@ -4,7 +4,7 @@
             <h3>{{ customer.name }}</h3>
         </div>
         <div>
-            <button type="button" class="btn btn-outline-secondary"><i class="far fa-edit"></i> Edit</button>
+            <router-link tag="button" class="btn btn-outline-secondary" id="button" :to="{ name: 'customers_edit' }"><i class="far fa-edit"></i> Edit</router-link>
             <button type="button" class="btn btn-danger" @click="delete_customer"><i class="fas fa-trash-alt"></i> Delete</button>
         </div>
     </div>

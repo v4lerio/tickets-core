@@ -8,6 +8,7 @@ import Dashboard from './components/Dashboard'
 import customers_index from './components/customers/index'
 import customers_show from './components/customers/show'
 import customers_create from './components/customers/create'
+import customers_edit from './components/customers/edit'
 
 // organisation components
 import organisations_index from './components/organisations/index'
@@ -24,6 +25,7 @@ const router = new VueRouter({
         // customer routes
         { path: '/customers', name: 'customers_index', component: customers_index },
         { path: '/customers/create', name: 'customers_create', component: customers_create },
+        { path: '/customers/:id/edit', name: 'customers_edit', component: customers_edit },
         { path: '/customers/:id', name: 'customers_show', component: customers_show },
         // organisation routes
         { path: '/organisations', name: 'organisations_index', component: organisations_index },
