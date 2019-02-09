@@ -4,7 +4,7 @@
             <h3>{{ organisation.name }}</h3>
         </div>
         <div>
-            <button type="button" class="btn btn-outline-secondary"><i class="far fa-edit"></i> Edit</button>
+            <router-link tag="button" class="btn btn-outline-secondary" id="button" :to="{ name: 'organisations_edit' }"><i class="far fa-edit"></i> Edit</router-link>
             <button type="button" class="btn btn-danger" @click="delete_organisation"><i class="fas fa-trash-alt"></i> Delete</button>
         </div>
     </div>

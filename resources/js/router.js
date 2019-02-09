@@ -14,6 +14,7 @@ import customers_edit from './components/customers/edit'
 import organisations_index from './components/organisations/index'
 import organisations_show from './components/organisations/show'
 import organisations_create from './components/organisations/create'
+import organisations_edit from './components/organisations/edit'
 
 Vue.use(VueRouter)
 
@@ -30,6 +31,7 @@ const router = new VueRouter({
         // organisation routes
         { path: '/organisations', name: 'organisations_index', component: organisations_index },
         { path: '/organisations/create', name: 'organisations_create', component: organisations_create },
+        { path: '/organisations/:id/edit', name: 'organisations_edit', component: organisations_edit },
         { path: '/organisations/:id', name: 'organisations_show', component: organisations_show },
     ],
 })
