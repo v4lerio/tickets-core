@@ -1,6 +1,12 @@
 <template>
-    <div>
-        <h3>{{ organisation.name }}</h3>
+    <div class="d-flex justify-content-between">
+        <div>
+            <h3>{{ organisation.name }}</h3>
+        </div>
+        <div>
+            <button type="button" class="btn btn-outline-secondary"><i class="far fa-edit"></i> Edit</button>
+            <button type="button" class="btn btn-danger" @click="delete_organisation"><i class="fas fa-trash-alt"></i> Delete</button>
+        </div>
     </div>
 </template>
 
@@ -16,6 +22,30 @@
             .then(response => {
                 this.organisation = response.data.data;
             })
+        },
+        methods: {
+            delete_organisation() {
+                this.$swal({
+                    title: 'Are you sure?',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.value) {
+                        this.axios.delete('/api/organisations/' + this.organisation.id).then(response => {
+                            this.$swal(
+                                'Deleted!',
+                                this.organisation.name + ' has been deleted.',
+                                'success'
+                            ).then(result => {
+                                this.$router.push('/organisations');
+                            });
+                        });
+                    }
+                });
+            }
         }
     }
 </script>
