@@ -6,6 +6,8 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import Router from './router'
 import App from './components/App'
+import VueSweetalert2 from 'vue-sweetalert2';
+
 
 const Axios = axios.create({
     timeout: 5000,
@@ -25,7 +27,8 @@ Axios.interceptors.request.use(config => {
     return Promise.reject(error);
 });
 
-Vue.use(VueAxios, Axios)
+Vue.use(VueAxios, Axios);
+Vue.use(VueSweetalert2);
 
 const app = new Vue({
     el: '#app',
