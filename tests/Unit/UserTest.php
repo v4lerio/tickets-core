@@ -20,4 +20,12 @@ class UserTest extends TestCase
         $this->assertSame($ticket->owner->name, $user->name);
     }
 
+    /** @test */
+    public function it_has_a_path()
+    {
+        $user = $this->create(\App\User::class);
+
+        $this->assertEquals('/api/users/' . $user->id, $user->path());
+    }
+
 }

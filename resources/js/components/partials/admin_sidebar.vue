@@ -122,6 +122,19 @@
         </div>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Users_menu" aria-expanded="true" aria-controls="Users_menu">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Users</span>
+        </a>
+        <div id="Users_menu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <router-link class="collapse-item" :to="{ name: '' }">Users</router-link>
+            <router-link class="collapse-item" :to="{ name: '' }">Create User</router-link>
+          </div>
+        </div>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 

@@ -2616,6 +2616,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -22520,6 +22533,42 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
+      _c("li", { staticClass: "nav-item" }, [
+        _vm._m(7),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse",
+            attrs: {
+              id: "Users_menu",
+              "aria-labelledby": "headingTwo",
+              "data-parent": "#accordionSidebar"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "bg-white py-2 collapse-inner rounded" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "collapse-item", attrs: { to: { name: "" } } },
+                  [_vm._v("Users")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  { staticClass: "collapse-item", attrs: { to: { name: "" } } },
+                  [_vm._v("Create User")]
+                )
+              ],
+              1
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
       _c("hr", { staticClass: "sidebar-divider d-none d-md-block" }),
       _vm._v(" "),
       _c("div", { staticClass: "text-center d-none d-md-inline" }, [
@@ -22690,6 +22739,29 @@ var staticRenderFns = [
         _c("i", { staticClass: "fas fa-fw fa-exclamation" }),
         _vm._v(" "),
         _c("span", [_vm._v("Priorities")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "nav-link collapsed",
+        attrs: {
+          href: "#",
+          "data-toggle": "collapse",
+          "data-target": "#Users_menu",
+          "aria-expanded": "true",
+          "aria-controls": "Users_menu"
+        }
+      },
+      [
+        _c("i", { staticClass: "fas fa-fw fa-user" }),
+        _vm._v(" "),
+        _c("span", [_vm._v("Users")])
       ]
     )
   }
@@ -38557,8 +38629,8 @@ router.beforeEach(function (to, from, next) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\GitRepos\tickets-core\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\GitRepos\tickets-core\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! f:\GitRepos\tickets-core\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! f:\GitRepos\tickets-core\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
