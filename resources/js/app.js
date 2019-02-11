@@ -1,5 +1,6 @@
 import 'bootstrap'
 import './sb-admin-2'
+import _ from 'lodash';
 
 import Vue from 'vue'
 import axios from 'axios'
