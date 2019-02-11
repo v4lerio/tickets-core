@@ -2291,6 +2291,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -39757,6 +39761,27 @@ var render = function() {
                   )
                 ],
                 1
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                [
+                  dept.manager
+                    ? _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: {
+                              name: "users_show",
+                              params: { id: dept.manager.id }
+                            }
+                          }
+                        },
+                        [_vm._v(_vm._s(dept.manager.name))]
+                      )
+                    : _vm._e()
+                ],
+                1
               )
             ])
           }),
@@ -39781,7 +39806,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [_c("tr", [_c("th", [_vm._v("Department")])])])
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Department")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Manager")])
+      ])
+    ])
   }
 ]
 render._withStripped = true

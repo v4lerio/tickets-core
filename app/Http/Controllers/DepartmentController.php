@@ -15,7 +15,7 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        return DepartmentResource::collection(Department::all());
+        return DepartmentResource::collection(Department::with('manager')->orderBy("name")->get());
     }
 
     /**
@@ -44,7 +44,7 @@ class DepartmentController extends Controller
      */
     public function show(Department $department)
     {
-        return new DepartmentResource($department);
+        return new DepartmentResource($department->load('manager'));
     }
 
     /**

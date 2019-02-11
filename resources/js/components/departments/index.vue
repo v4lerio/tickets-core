@@ -10,12 +10,16 @@
                 <thead>
                     <tr>
                         <th>Department</th>
+                        <th>Manager</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="dept in departments" :key="dept.id">
                         <td>
                             <router-link :to="{ name: 'departments_show', params: { id: dept.id } }">{{ dept.name }}</router-link>
+                        </td>
+                        <td>
+                            <router-link v-if="dept.manager" :to="{ name: 'users_show', params: { id: dept.manager.id } }">{{ dept.manager.name }}</router-link>
                         </td>
                     </tr>
                 </tbody>
