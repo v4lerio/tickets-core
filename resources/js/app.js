@@ -1,6 +1,8 @@
 import 'bootstrap'
 import './sb-admin-2'
 import _ from 'lodash';
+import jwt from 'jsonwebtoken';
+window.jwt = jwt;
 
 import Vue from 'vue'
 import axios from 'axios'

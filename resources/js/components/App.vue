@@ -33,11 +33,17 @@
 				},
 				methods: {
 						logged_in() {
-								if (localStorage.token) {
-										return true;
+							if (localStorage.token && jwt.decode(localStorage.token)) {
+								const decoded = jwt.decode(localStorage.token);
+								const now = new Date();
+								if (now.getTime() < decoded.exp * 1000) {
+									return true;
 								} else {
-										return false;
+									localStorage.removeItem("token");
+									this.$router.push('/login');
+									return false;
 								}
+							}
 						}
 				}
 		}
