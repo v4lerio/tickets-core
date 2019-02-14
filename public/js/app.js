@@ -83061,13 +83061,11 @@ vue__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
         if (now.getTime() < decoded.exp * 1000) {
           return true;
         } else {
-          localStorage.removeItem("token");
-          this.$router.push('/login');
-          return false;
+          this.remove_token_and_redirect_to_login();
         }
+      } else {
+        this.remove_token_and_redirect_to_login();
       }
-
-      return false;
     },
     refresh_token: function refresh_token() {
       var _this = this;
@@ -83088,6 +83086,11 @@ vue__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
         var expires_in = expiry - now;
         setTimeout(this.refresh_token, expires_in - 10 * 1000);
       }
+    },
+    remove_token_and_redirect_to_login: function remove_token_and_redirect_to_login() {
+      localStorage.removeItem("token");
+      this.$router.push('/login');
+      return false;
     }
   }
 });
