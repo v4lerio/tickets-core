@@ -3649,28 +3649,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
   components: {
     admin_topbar: _partials_admin_topbar__WEBPACK_IMPORTED_MODULE_0__["default"],
     admin_sidebar: _partials_admin_sidebar__WEBPACK_IMPORTED_MODULE_1__["default"],
     admin_footer: _partials_admin_footer__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  data: function data() {
-    return {};
-  },
-  methods: {
-    logged_in: function logged_in() {
-      if (localStorage.token && jwt.decode(localStorage.token)) {
-        var decoded = jwt.decode(localStorage.token);
-        var now = new Date();
-
-        if (now.getTime() < decoded.exp * 1000) {
-          return true;
-        } else {
-          localStorage.removeItem("token");
-          this.$router.push('/login');
-          return false;
-        }
-      }
+  created: function created() {
+    if (this.logged_in()) {
+      this.setup_token_refresh();
     }
   }
 });
@@ -3764,6 +3753,8 @@ __webpack_require__.r(__webpack_exports__);
         password: this.password
       }).then(function (response) {
         localStorage.token = response.data.access_token;
+
+        _this.setup_token_refresh();
 
         _this.$router.push('/');
       }).catch(function (error) {
@@ -83035,7 +83026,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-window.jwt = jsonwebtoken__WEBPACK_IMPORTED_MODULE_3___default.a;
 
 
 
@@ -83061,6 +83051,46 @@ Axios.interceptors.request.use(function (config) {
 });
 vue__WEBPACK_IMPORTED_MODULE_4___default.a.use(vue_axios__WEBPACK_IMPORTED_MODULE_6___default.a, Axios);
 vue__WEBPACK_IMPORTED_MODULE_4___default.a.use(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_9__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
+  methods: {
+    logged_in: function logged_in() {
+      if (localStorage.token && jsonwebtoken__WEBPACK_IMPORTED_MODULE_3___default.a.decode(localStorage.token)) {
+        var decoded = jsonwebtoken__WEBPACK_IMPORTED_MODULE_3___default.a.decode(localStorage.token);
+        var now = new Date();
+
+        if (now.getTime() < decoded.exp * 1000) {
+          return true;
+        } else {
+          localStorage.removeItem("token");
+          this.$router.push('/login');
+          return false;
+        }
+      }
+
+      return false;
+    },
+    refresh_token: function refresh_token() {
+      var _this = this;
+
+      this.axios.post('/api/refresh').then(function (response) {
+        localStorage.token = response.data.access_token;
+
+        _this.setup_token_refresh();
+      }).catch(function (error) {
+        console.log("Unable to refresh API token.");
+      });
+    },
+    setup_token_refresh: function setup_token_refresh() {
+      if (localStorage.token && jsonwebtoken__WEBPACK_IMPORTED_MODULE_3___default.a.decode(localStorage.token)) {
+        var decoded = jsonwebtoken__WEBPACK_IMPORTED_MODULE_3___default.a.decode(localStorage.token);
+        var now = new Date();
+        var expiry = decoded.exp * 1000;
+        var expires_in = expiry - now;
+        setTimeout(this.refresh_token, expires_in - 10 * 1000);
+      }
+    }
+  }
+});
 var app = new vue__WEBPACK_IMPORTED_MODULE_4___default.a({
   el: '#app',
   components: {

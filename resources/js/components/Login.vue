@@ -59,6 +59,7 @@
 								})
 								.then(response => {
 										localStorage.token = response.data.access_token;
+										this.setup_token_refresh();
 										this.$router.push('/');
 								})
 								.catch(error => {

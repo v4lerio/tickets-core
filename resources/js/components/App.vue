@@ -23,28 +23,19 @@
 		import admin_sidebar from './partials/admin_sidebar';
 		import admin_footer from './partials/admin_footer';
 		export default {
-				components: {
-					admin_topbar,
-					admin_sidebar,
-					admin_footer
-				},
-				data() {
-					return {};
-				},
-				methods: {
-						logged_in() {
-							if (localStorage.token && jwt.decode(localStorage.token)) {
-								const decoded = jwt.decode(localStorage.token);
-								const now = new Date();
-								if (now.getTime() < decoded.exp * 1000) {
-									return true;
-								} else {
-									localStorage.removeItem("token");
-									this.$router.push('/login');
-									return false;
-								}
-							}
-						}
+			data() {
+				return {
+				};
+			},
+			components: {
+				admin_topbar,
+				admin_sidebar,
+				admin_footer
+			},
+			created() {
+				if (this.logged_in()) {
+					this.setup_token_refresh();
 				}
+			}
 		}
 </script>
