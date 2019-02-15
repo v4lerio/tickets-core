@@ -181,5 +181,14 @@ class UserTest extends TestCase
         ]);
     }
 
+    /** @test */
+    public function an_existing_user_can_update_without_getting_unique_email_warning()
+    {
+        $user = $this->create(\App\User::class);
+
+        $this->json('PATCH', $user->path(), ['email' => $user->email])
+            ->assertStatus(200);
+    }
+
 
 }
