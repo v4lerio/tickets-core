@@ -16,7 +16,6 @@ class AuthenticationTest extends TestCase
 
         $response = $this->json('POST', 'api/login', [
             'email'    => $user->email,
-            'name' => $user->name,
             'password' => '123456'
         ]);
 
@@ -32,14 +31,13 @@ class AuthenticationTest extends TestCase
     {
         $this->json('POST', 'api/login')->assertStatus(422);
     }
-    
+
 
     /** @test */
     public function it_will_not_log_an_invalid_user_in()
     {
         $response = $this->json('POST', 'api/login', [
             'email'    => 'test@email.com',
-            'name' => 'test account',
             'password' => 'notlegitpassword'
         ]);
 
@@ -55,7 +53,6 @@ class AuthenticationTest extends TestCase
 
         $response = $this->json('POST', 'api/login', [
             'email' => $user->email,
-            'name' => $user->name,
             'password' => '123456'
         ]);
 
@@ -85,7 +82,7 @@ class AuthenticationTest extends TestCase
     {
         $response = $this->json('POST', 'api/refresh', [], ['Authorization' => 'bearer ' . "invalidtoken.blah.foo"])->assertStatus(401);
     }
-    
-    
-    
+
+
+
 }
