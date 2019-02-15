@@ -28,7 +28,7 @@ class UserController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'email' => 'required|unique:users',
+            'email' => 'required|email|unique:users',
             'password' => 'required'
         ]);
 
@@ -59,7 +59,7 @@ class UserController extends Controller
     {
         $user->update($request->validate([
             'name' => 'sometimes|required',
-            'email' => 'sometimes|required|unique:users',
+            'email' => 'sometimes|required|email|unique:users',
             'password' => 'sometimes|required'
         ]));
 

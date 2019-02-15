@@ -81,6 +81,21 @@ class UserTest extends TestCase
             ->assertJsonFragment(['The email has already been taken.']);
     }
 
+    /** @test */
+    public function it_validates_correct_email_addresses_on_create()
+    {
+        $data = [
+            'name' => $this->faker->name,
+            'email' => 'foo',
+            'password' => 'secret!'
+        ];
+
+        $this->json('POST', '/api/users', $data)
+            ->assertStatus(422)
+            ->assertJsonFragment(['The email must be a valid email address.']);
+    }
+
+
 
     /** @test */
     public function we_can_update_a_users_name()
@@ -106,6 +121,17 @@ class UserTest extends TestCase
             ->assertStatus(422)
             ->assertJsonFragment(['The email has already been taken.']);
     }
+
+    /** @test */
+    public function it_validates_correct_email_addresses_on_update()
+    {
+        $user = $this->create(\App\User::class);
+
+        $this->json('PATCH', $user->path(), ['email' => 'foo'])
+            ->assertStatus(422)
+            ->assertJsonFragment(['The email must be a valid email address.']);
+    }
+
 
 
     /** @test */
