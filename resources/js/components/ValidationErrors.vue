@@ -1,7 +1,7 @@
 <template>
     <div v-if="errors">
-        <ul class="alert alert-danger">
-            <em v-for="error in validationErrors">{{ error }}</em>
+        <ul class="list-group mb-4">
+            <li class="list-group-item list-group-item-danger" v-for="error in validationErrors"><em>{{ error }}</em></li>
         </ul>
     </div>
 </template>
