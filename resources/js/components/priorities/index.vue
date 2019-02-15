@@ -10,12 +10,20 @@
                 <thead>
                     <tr>
                         <th>Priority</th>
+                        <th>Urgency</th>
+                        <th>Colour</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="priority in priorities" :key="priority.id">
                         <td>
                             <router-link :to="{ name: 'priorities_show', params: { id: priority.id } }">{{ priority.name }}</router-link>
+                        </td>
+                        <td>
+                            {{ priority.urgency }}
+                        </td>
+                        <td :style="'background-color:' + priority.colour">
+
                         </td>
                     </tr>
                 </tbody>
