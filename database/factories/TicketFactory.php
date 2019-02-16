@@ -9,8 +9,8 @@ $factory->define(App\Ticket::class, function (Faker $faker) {
         'department_id' => factory(\App\Department::class),
         'support_type_id' => factory(\App\SupportType::class),
         'priority_id' => factory(\App\Priority::class),
-        'subject' => $this->faker->sentence,
-        'state' => collect(['open', 'closed'])->random()
+        'status_id' => factory(\App\Status::class),
+        'subject' => $this->faker->sentence
     ];
 });
 

@@ -64,4 +64,11 @@ class TicketTest extends TestCase
         $this->assertInstanceOf(Collection::class, $ticket->articles);
     }
 
+    /** @test */
+    public function it_belongs_to_a_status() {
+        $ticket = $this->create(\App\Ticket::class);
+
+        $this->assertInstanceOf(\App\Status::class, $ticket->status);
+    }
+    
 }

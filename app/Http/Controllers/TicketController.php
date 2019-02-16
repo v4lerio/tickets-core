@@ -32,8 +32,8 @@ class TicketController extends Controller
             'department_id' => 'required|integer|exists:departments,id',
             'support_type_id' => 'sometimes|integer|exists:support_types,id',
             'priority_id' => 'required|integer|exists:priorities,id',
+            'status_id' => 'required|integer|exists:statuses,id',
             'subject' => 'required',
-            'state' => 'required|in:open,closed'
         ]);
 
         $ticket = Ticket::create($data);
@@ -54,7 +54,8 @@ class TicketController extends Controller
             'customer',
             'department',
             'support_type',
-            'priority'
+            'priority',
+            'status'
         ]));
     }
 
@@ -71,10 +72,10 @@ class TicketController extends Controller
             'user_id' => 'sometimes|integer|exists:users,id',
             'customer_id' => 'sometimes|integer|exists:customers,id',
             'department_id' => 'sometimes|required|integer|exists:departments,id',
-            'support_type_id' => 'sometimes|sometimes|integer|exists:support_types,id',
+            'support_type_id' => 'sometimes|required|integer|exists:support_types,id',
             'priority_id' => 'sometimes|required|integer|exists:priorities,id',
+            'status_id' => 'sometimes|required|integer|exists:statuses,id',
             'subject' => 'sometimes|required',
-            'state' => 'sometimes|required|in:open,closed'
         ]);
 
         $ticket->update($data);

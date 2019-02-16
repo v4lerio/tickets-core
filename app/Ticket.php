@@ -18,6 +18,7 @@ class Ticket extends Model
         'department_id' => 'integer',
         'support_type_id' => 'integer',
         'priority_id' => 'integer',
+        'status_id' => 'integer',
     ];
 
     public function path()
@@ -48,6 +49,11 @@ class Ticket extends Model
     public function priority()
     {
         return $this->belongsTo(\App\Priority::class);
+    }
+
+    public function status()
+    {
+        return $this->belongsTo(\App\Status::class);
     }
 
     public function articles()

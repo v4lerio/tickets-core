@@ -29,8 +29,8 @@ class TicketTest extends TestCase
                 'department_id' => $ticket->department_id,
                 'support_type_id' => $ticket->support_type_id,
                 'priority_id' => $ticket->priority_id,
+                'status_id' => $ticket->status_id,
                 'subject' => $ticket->subject,
-                'state' => $ticket->state,
             ]);
     }
 
@@ -47,8 +47,8 @@ class TicketTest extends TestCase
                 'department_id' => $ticket->department_id,
                 'support_type_id' => $ticket->support_type_id,
                 'priority_id' => $ticket->priority_id,
+                'status_id' => $ticket->status_id,
                 'subject' => $ticket->subject,
-                'state' => $ticket->state,
                 'name' => $ticket->owner->name,
                 'name' => $ticket->customer->name,
                 'name' => $ticket->department->name,
@@ -65,8 +65,8 @@ class TicketTest extends TestCase
         $department = $this->create(\App\Department::class);
         $support_type = $this->create(\App\SupportType::class);
         $priority = $this->create(\App\Priority::class);
+        $status = $this->create(\App\Status::class);
         $subject = $this->faker->sentence;
-        $state = collect(['open', 'closed'])->random();
 
 
         $this->json('POST', '/api/tickets', [
@@ -75,8 +75,8 @@ class TicketTest extends TestCase
             'department_id' => $department->id,
             'support_type_id' => $support_type->id,
             'priority_id' => $priority->id,
+            'status_id' => $status->id,
             'subject' => $subject,
-            'state' => $state,
         ])
             ->assertStatus(201)
             ->assertJsonFragment([
@@ -85,8 +85,8 @@ class TicketTest extends TestCase
                 'department_id' => $department->id,
                 'support_type_id' => $support_type->id,
                 'priority_id' => $priority->id,
+                'status_id' => $status->id,
                 'subject' => $subject,
-                'state' => $state,
             ]);
     }
 
@@ -97,7 +97,7 @@ class TicketTest extends TestCase
             ->assertStatus(422)
             ->assertJsonFragment(['The department id field is required.'])
             ->assertJsonFragment(['The priority id field is required.'])
-            ->assertJsonFragment(['The state field is required.'])
+            ->assertJsonFragment(['The status id field is required.'])
             ->assertJsonFragment(['The subject field is required.']);
     }
 
@@ -110,8 +110,8 @@ class TicketTest extends TestCase
         $department = $this->create(\App\Department::class);
         $support_type = $this->create(\App\SupportType::class);
         $priority = $this->create(\App\Priority::class);
+        $status = $this->create(\App\Status::class);
         $subject = $this->faker->sentence;
-        $state = collect(['open', 'closed'])->random();
 
         $this->json('PATCH', $ticket->path(), [
             'user_id' => $user->id,
@@ -119,8 +119,8 @@ class TicketTest extends TestCase
             'department_id' => $department->id,
             'support_type_id' => $support_type->id,
             'priority_id' => $priority->id,
+            'status_id' => $status->id,
             'subject' => $subject,
-            'state' => $state,
         ])
             ->assertStatus(200)
             ->assertJsonFragment([
@@ -129,8 +129,8 @@ class TicketTest extends TestCase
                 'department_id' => $department->id,
                 'support_type_id' => $support_type->id,
                 'priority_id' => $priority->id,
+                'status_id' => $status->id,
                 'subject' => $subject,
-                'state' => $state,
             ]);
     }
 

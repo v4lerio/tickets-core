@@ -20,8 +20,8 @@ class CreateTicketsTable extends Migration
             $table->unsignedInteger('department_id');
             $table->unsignedInteger('support_type_id')->nullable(); // might not know the support type up front. Especially on e-mail
             $table->unsignedInteger('priority_id');
+            $table->unsignedInteger('status_id');
             $table->text('subject');
-            $table->enum('state', ['open', 'closed'])->default('open');
             $table->softDeletes();
             $table->timestamps();
         });
