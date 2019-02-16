@@ -10,7 +10,7 @@ $factory->define(App\Ticket::class, function (Faker $faker) {
         'support_type_id' => factory(\App\SupportType::class),
         'priority_id' => factory(\App\Priority::class),
         'status_id' => factory(\App\Status::class),
-        'subject' => $this->faker->sentence
+        'subject' => $faker->sentence
     ];
 });
 
