@@ -5312,6 +5312,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5359,6 +5367,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -5368,8 +5388,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       errors: null,
-      organisation: {
-        name: ""
+      status: {
+        name: "",
+        description: "",
+        state: 'open'
       }
     };
   },
@@ -5377,24 +5399,24 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     if (this.editing) {
-      this.axios.get('/api/organisations/' + this.$route.params.id).then(function (response) {
-        _this.organisation = response.data.data;
+      this.axios.get('/api/statuses/' + this.$route.params.id).then(function (response) {
+        _this.status = response.data.data;
       });
     }
   },
   methods: {
     submit: function submit() {
       if (this.editing) {
-        return this.axios.patch('/api/organisations/' + this.$route.params.id, this.organisation);
+        return this.axios.patch('/api/statuses/' + this.$route.params.id, this.status);
       } else {
-        return this.axios.post('/api/organisations', this.organisation);
+        return this.axios.post('/api/statuses', this.status);
       }
     },
-    submit_organisation: function submit_organisation() {
+    submit_status: function submit_status() {
       var _this2 = this;
 
       this.submit().then(function (response) {
-        _this2.$router.push('/organisations/' + response.data.data.id);
+        _this2.$router.push('/statuses/' + response.data.data.id);
       }).catch(function (error) {
         _this2.errors = {};
         _this2.errors = error.response.data.errors;
@@ -5429,18 +5451,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      organisation: {}
+      status: {}
     };
   },
   created: function created() {
     var _this = this;
 
-    this.axios.get('/api/organisations/' + this.$route.params.id).then(function (response) {
-      _this.organisation = response.data.data;
+    this.axios.get('/api/statuses/' + this.$route.params.id).then(function (response) {
+      _this.status = response.data.data;
     });
   },
   methods: {
-    delete_organisation: function delete_organisation() {
+    delete_status: function delete_status() {
       var _this2 = this;
 
       this.$swal({
@@ -5452,9 +5474,9 @@ __webpack_require__.r(__webpack_exports__);
         confirmButtonText: 'Yes, delete it!'
       }).then(function (result) {
         if (result.value) {
-          _this2.axios.delete('/api/organisations/' + _this2.organisation.id).then(function (response) {
-            _this2.$swal('Deleted!', _this2.organisation.name + ' has been deleted.', 'success').then(function (result) {
-              _this2.$router.push('/organisations');
+          _this2.axios.delete('/api/statuses/' + _this2.status.id).then(function (response) {
+            _this2.$swal('Deleted!', _this2.status.name + ' has been deleted.', 'success').then(function (result) {
+              _this2.$router.push('/statuses');
             });
           });
         }
@@ -69711,7 +69733,23 @@ var render = function() {
                   )
                 ],
                 1
-              )
+              ),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(status.state) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(status.description) +
+                    "\n                    "
+                )
+              ])
             ])
           }),
           0
@@ -69735,7 +69773,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [_c("tr", [_c("th", [_vm._v("Statuses")])])])
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("State")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Description")])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -69769,7 +69815,7 @@ var render = function() {
       _c("div", { staticClass: "card shadow mb-4" }, [
         _c("div", { staticClass: "card-header py-3" }, [
           _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-            _vm._v(_vm._s(_vm.editing ? "Editing" : "Create") + " Organisation")
+            _vm._v(_vm._s(_vm.editing ? "Editing" : "Create") + " Status")
           ])
         ]),
         _vm._v(" "),
@@ -69780,14 +69826,14 @@ var render = function() {
               on: {
                 submit: function($event) {
                   $event.preventDefault()
-                  return _vm.submit_organisation($event)
+                  return _vm.submit_status($event)
                 }
               }
             },
             [
               _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "organisation_name" } }, [
-                  _vm._v("Organisation Name")
+                _c("label", { attrs: { for: "status_name" } }, [
+                  _vm._v("Name")
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -69795,23 +69841,108 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.organisation.name,
-                      expression: "organisation.name"
+                      value: _vm.status.name,
+                      expression: "status.name"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: {
                     type: "text",
-                    id: "organisation_name",
-                    placeholder: "Bobs Bricks"
+                    id: "status_name",
+                    placeholder: "Waiting on Customer"
                   },
-                  domProps: { value: _vm.organisation.name },
+                  domProps: { value: _vm.status.name },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.organisation, "name", $event.target.value)
+                      _vm.$set(_vm.status, "name", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "state" } }, [_vm._v("State")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.status.state,
+                        expression: "status.state"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { id: "state" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.status,
+                          "state",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "open" } }, [
+                      _vm._v("Open")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "open" } }, [
+                      _vm._v("Closed")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "open" } }, [
+                      _vm._v("Archived")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "description" } }, [
+                  _vm._v("Description")
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.status.description,
+                      expression: "status.description"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "description",
+                    rows: "5",
+                    placeholder:
+                      "Waiting on additional information from the Customer.."
+                  },
+                  domProps: { value: _vm.status.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.status, "description", $event.target.value)
                     }
                   }
                 })
@@ -69820,11 +69951,7 @@ var render = function() {
               _c(
                 "button",
                 { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-                [
-                  _vm._v(
-                    _vm._s(_vm.editing ? "Update" : "Create") + " Organisation"
-                  )
-                ]
+                [_vm._v(_vm._s(_vm.editing ? "Update" : "Create") + " Status")]
               )
             ]
           )
@@ -69857,7 +69984,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "d-flex justify-content-between" }, [
-    _c("div", [_c("h3", [_vm._v(_vm._s(_vm.organisation.name))])]),
+    _c("div", [_c("h3", [_vm._v(_vm._s(_vm.status.name))])]),
     _vm._v(" "),
     _c(
       "div",
@@ -69869,7 +69996,7 @@ var render = function() {
             attrs: {
               tag: "button",
               id: "button",
-              to: { name: "organisations_edit" }
+              to: { name: "statuses_edit" }
             }
           },
           [_c("i", { staticClass: "far fa-edit" }), _vm._v(" Edit")]
@@ -69880,7 +70007,7 @@ var render = function() {
           {
             staticClass: "btn btn-danger",
             attrs: { type: "button" },
-            on: { click: _vm.delete_organisation }
+            on: { click: _vm.delete_status }
           },
           [_c("i", { staticClass: "fas fa-trash-alt" }), _vm._v(" Delete")]
         )

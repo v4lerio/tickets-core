@@ -1,11 +1,11 @@
 <template>
     <div class="d-flex justify-content-between">
         <div>
-            <h3>{{ organisation.name }}</h3>
+            <h3>{{ status.name }}</h3>
         </div>
         <div>
-            <router-link tag="button" class="btn btn-outline-secondary" id="button" :to="{ name: 'organisations_edit' }"><i class="far fa-edit"></i> Edit</router-link>
-            <button type="button" class="btn btn-danger" @click="delete_organisation"><i class="fas fa-trash-alt"></i> Delete</button>
+            <router-link tag="button" class="btn btn-outline-secondary" id="button" :to="{ name: 'statuses_edit' }"><i class="far fa-edit"></i> Edit</router-link>
+            <button type="button" class="btn btn-danger" @click="delete_status"><i class="fas fa-trash-alt"></i> Delete</button>
         </div>
     </div>
 </template>
@@ -14,17 +14,17 @@
     export default {
         data() {
             return {
-                organisation: {}
+                status: {}
             }
         },
         created() {
-            this.axios.get('/api/organisations/' + this.$route.params.id)
+            this.axios.get('/api/statuses/' + this.$route.params.id)
             .then(response => {
-                this.organisation = response.data.data;
+                this.status = response.data.data;
             })
         },
         methods: {
-            delete_organisation() {
+            delete_status() {
                 this.$swal({
                     title: 'Are you sure?',
                     type: 'warning',
@@ -34,13 +34,13 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.value) {
-                        this.axios.delete('/api/organisations/' + this.organisation.id).then(response => {
+                        this.axios.delete('/api/statuses/' + this.status.id).then(response => {
                             this.$swal(
                                 'Deleted!',
-                                this.organisation.name + ' has been deleted.',
+                                this.status.name + ' has been deleted.',
                                 'success'
                             ).then(result => {
-                                this.$router.push('/organisations');
+                                this.$router.push('/statuses');
                             });
                         });
                     }

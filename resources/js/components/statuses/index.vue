@@ -9,13 +9,21 @@
             <table class="table table-bordered table-sm mb-0">
                 <thead>
                     <tr>
-                        <th>Statuses</th>
+                        <th>Name</th>
+                        <th>State</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="status in statuses" :key="status.id">
                         <td>
                             <router-link :to="{ name: 'statuses_show', params: { id: status.id } }">{{ status.name }}</router-link>
+                        </td>
+                        <td>
+                            {{ status.state }}
+                        </td>
+                        <td>
+                            {{ status.description }}
                         </td>
                     </tr>
                 </tbody>
