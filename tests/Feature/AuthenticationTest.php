@@ -80,8 +80,31 @@ class AuthenticationTest extends TestCase
     /** @test */
     public function can_only_refresh_a_valid_token()
     {
-        $response = $this->json('POST', 'api/refresh', [], ['Authorization' => 'bearer ' . "invalidtoken.blah.foo"])->assertStatus(401);
+        $this->json('POST', 'api/refresh', [], ['Authorization' => 'bearer ' . "invalidtoken.blah.foo"])
+            ->assertStatus(401);
     }
+
+    /** @test */
+    public function we_can_fetch_our_own_user()
+    {
+        $user = $this->create(\App\User::class);
+
+        $this->signIn($user);
+
+        $this->json('GET', 'api/current_user')
+            ->assertJsonFragment(['name' => $user->name])
+            ->assertJsonFragment(['email' => $user->email]);
+
+    }
+
+    /** @test */
+    public function we_have_to_be_signed_in_to_fetch_our_own_user()
+    {
+        $this->json('GET', 'api/current_user')
+            ->assertStatus(401)
+            ->assertJsonFragment(['Unauthenticated.']);
+    }
+
 
 
 
