@@ -19,6 +19,7 @@ class CreateStatusesTable extends Migration
             $table->text('description');
             $table->enum('state', ['open', 'closed', 'archived']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

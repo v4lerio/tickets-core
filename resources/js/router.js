@@ -34,6 +34,12 @@ import priorities_show from './components/priorities/show'
 import priorities_create from './components/priorities/create'
 import priorities_edit from './components/priorities/edit'
 
+// statuses components
+import statuses_index from './components/statuses/index'
+import statuses_show from './components/statuses/show'
+import statuses_create from './components/statuses/create'
+import statuses_edit from './components/statuses/edit'
+
 // user components
 import users_index from './components/users/index'
 import users_show from './components/users/show'
@@ -67,11 +73,16 @@ const router = new VueRouter({
         { path: '/support_types/create', name: 'support_types_create', component: support_types_create },
         { path: '/support_types/:id/edit', name: 'support_types_edit', component: support_types_edit },
         { path: '/support_types/:id', name: 'support_types_show', component: support_types_show },
-        // support type routes
+        // priority routes
         { path: '/priorities', name: 'priorities_index', component: priorities_index },
         { path: '/priorities/create', name: 'priorities_create', component: priorities_create },
         { path: '/priorities/:id/edit', name: 'priorities_edit', component: priorities_edit },
         { path: '/priorities/:id', name: 'priorities_show', component: priorities_show },
+        // priority routes
+        { path: '/statuses', name: 'statuses_index', component: statuses_index },
+        { path: '/statuses/create', name: 'statuses_create', component: statuses_create },
+        { path: '/statuses/:id/edit', name: 'statuses_edit', component: statuses_edit },
+        { path: '/statuses/:id', name: 'statuses_show', component: statuses_show },
         // users routes
         { path: '/users', name: 'users_index', component: users_index },
         { path: '/users/create', name: 'users_create', component: users_create },

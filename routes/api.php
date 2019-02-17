@@ -12,6 +12,7 @@ Route::middleware('auth:api')->group(function() {
     Route::resource('departments', 'DepartmentController');
     Route::resource('support_types', 'SupportTypeController');
     Route::resource('priorities', 'PriorityController');
+    Route::resource('statuses', 'StatusController');
     Route::resource('tickets', 'TicketController');
     Route::resource('users', 'UserController');
     Route::post('tickets/{ticket}/internal_note', 'TicketInternalNoteController@store');
