@@ -122,6 +122,19 @@
         </div>
       </li>
 
+        <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#statuses_menu" aria-expanded="true" aria-controls="statuses_menu">
+          <i class="fas fa-fw fa-check"></i>
+          <span>Statuses</span>
+        </a>
+        <div id="statuses_menu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <router-link class="collapse-item" :to="{ name: 'statuses_index' }">Statuses</router-link>
+            <router-link class="collapse-item" :to="{ name: 'statuses_create' }">Create Status</router-link>
+          </div>
+        </div>
+      </li>
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Users_menu" aria-expanded="true" aria-controls="Users_menu">
           <i class="fas fa-fw fa-user"></i>
