@@ -10,12 +10,16 @@
                 <thead>
                     <tr>
                         <th>User</th>
+                        <th>Email Address</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="user in users" :key="user.id">
                         <td>
                             <router-link :to="{ name: 'users_show', params: { id: user.id } }">{{ user.name }}</router-link>
+                        </td>
+                        <td>
+                            {{ user.email }}
                         </td>
                     </tr>
                 </tbody>

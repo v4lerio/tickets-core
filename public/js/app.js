@@ -5850,6 +5850,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -67124,7 +67128,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Customer")]),
+        _c("th", [_vm._v("Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Organisation")])
       ])
@@ -67510,7 +67514,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Department")]),
+        _c("th", [_vm._v("Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Manager")])
       ])
@@ -67875,7 +67879,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [_c("tr", [_c("th", [_vm._v("Organisation")])])])
+    return _c("thead", [_c("tr", [_c("th", [_vm._v("Name")])])])
   }
 ]
 render._withStripped = true
@@ -69388,7 +69392,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Priority")]),
+        _c("th", [_vm._v("Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Urgency")]),
         _vm._v(" "),
@@ -70168,7 +70172,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [_c("tr", [_c("th", [_vm._v("Support Type")])])])
+    return _c("thead", [_c("tr", [_c("th", [_vm._v("Name")])])])
   }
 ]
 render._withStripped = true
@@ -70554,7 +70558,15 @@ var render = function() {
                   )
                 ],
                 1
-              )
+              ),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(user.email) +
+                    "\n                    "
+                )
+              ])
             ])
           }),
           0
@@ -70578,7 +70590,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [_c("tr", [_c("th", [_vm._v("User")])])])
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("User")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Email Address")])
+      ])
+    ])
   }
 ]
 render._withStripped = true

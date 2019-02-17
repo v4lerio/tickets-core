@@ -9,7 +9,7 @@
             <table class="table table-bordered table-sm mb-0">
                 <thead>
                     <tr>
-                        <th>Organisation</th>
+                        <th>Name</th>
                     </tr>
                 </thead>
                 <tbody>
