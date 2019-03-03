@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken';
 
 import Vue from 'vue'
 import axios from 'axios'
+import { throttleAdapterEnhancer } from 'axios-extensions';
 import VueAxios from 'vue-axios'
 import Router from './router'
 import App from './components/App'
@@ -16,7 +17,9 @@ const Axios = axios.create({
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'no-cache'
     },
+    adapter: throttleAdapterEnhancer(axios.defaults.adapter, { threshold: 20 * 1000 })
 });
 
 Axios.interceptors.request.use(config => {
