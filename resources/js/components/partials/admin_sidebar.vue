@@ -160,16 +160,23 @@
 </template>
 
 <script>
+    import {EventBus} from '../../EventBus.js';
+
     export default {
-      data() {
-        return {
-          collapsed: false
+        data() {
+            return {
+                collapsed: false
+            }
+        },
+        mounted() {
+            EventBus.$on('toggleSideBar', () => {
+                this.toggleSidebar()
+            });
+        },
+        methods: {
+            toggleSidebar() {
+                this.collapsed = !this.collapsed;
+            }
         }
-      },
-      methods: {
-        toggleSidebar() {
-          this.collapsed = !this.collapsed;
-        }
-      }
     }
 </script>
