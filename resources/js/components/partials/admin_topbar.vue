@@ -47,37 +47,42 @@
 </template>
 
 <script>
-		export default {
-			data() {
-				return {
-					user: {
-						name: ""
-					}
-				}
-			},
-			created() {
-				this.axios.get('/api/current_user')
-				.then(response => {
-					console.log(response);
-					this.user = response.data.data;
-				})
-			},
-			methods: {
-				logout() {
-					this.$swal({
-						title: 'Logout?',
-						type: 'question',
-						showCancelButton: true,
-						confirmButtonColor: '#3085d6',
-						cancelButtonColor: '#d33',
-						confirmButtonText: 'Logout'
-					}).then((result) => {
-						if (result.value) {
-							localStorage.removeItem("token");
-							this.$router.push("/login");
-						}
-					});
-				}
-			}
-		}
+ import {EventBus} from '../../EventBus.js'
+
+    export default {
+        data() {
+            return {
+                user: {
+                    name: ""
+                }
+            }
+        },
+        created() {
+            this.axios.get('/api/current_user')
+                .then(response => {
+                    // console.log(response);
+                    this.user = response.data.data;
+                })
+        },
+        methods: {
+            toggleSidebar() {
+                EventBus.$emit('toggleSideBar')
+            },
+            logout() {
+                this.$swal({
+                    title: 'Logout?',
+                    type: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Logout'
+                }).then((result) => {
+                    if (result.value) {
+                        localStorage.removeItem("token");
+                        this.$router.push("/login");
+                    }
+                });
+            }
+        }
+    }
 </script>
